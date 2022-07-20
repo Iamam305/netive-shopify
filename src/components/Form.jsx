@@ -9,9 +9,9 @@ export default function Form() {
 
   return (
     <>
-    {/* <BasicInfo/> */}
+    <BasicInfo/>
 
-    <FormStyle/>
+    {/* <FormStyle/> */}
      
     </>
   );

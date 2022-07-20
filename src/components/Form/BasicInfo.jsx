@@ -86,8 +86,8 @@ const BasicInfo = () => {
 
               }
             </label>
-            <input type="file" {...register("appIcon")} name="appIcon" id="appIcon" className="ml-2 p-3 pl-0 h-12" onChange={imageChange} />
-            <div className='w-full h-14  relative -mt-12 bg-white'></div>
+            <input type="file" accept="image/png" {...register("appIcon")} name="appIcon" id="appIcon" className=" mt-4 ml-2 p-3 pl-0 h-1 w-1" onChange={imageChange} />
+            <div className='w-full h-8  relative -mt-7 bg-white'></div>
             <p className='text-xs text-red-600'>{errors.appIcon?.message}</p>
 
           </span>
