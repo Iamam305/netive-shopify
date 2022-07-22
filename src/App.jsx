@@ -1,10 +1,8 @@
 
 import './App.css'
 import Form from './components/Form'
-import AdditionalFeatures from './components/Form/AdditionalFeatures'
-import OsForm from './components/Form/OsForm'
 import Sidebar from './components/sidebar'
-import Test from './components/test'
+
 
 function App() {
 
@@ -15,12 +13,11 @@ function App() {
 
       <Sidebar />
 
-    <div className='min-h-screen flex flex-col justify-center items-center w-full'>
+    <div className='min-h-screen flex flex-col justify-center items-center w-full ml-72'>
 
-      {/* <Form /> */}
+      <Form />
       {/* <Test/> */}
-      {/* <AdditionalFeatures/> */}
-      <OsForm/>
+     
     </div>
     </div>
     </>

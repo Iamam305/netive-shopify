@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
+import { SetAppName, SetAppIcon, SetUrl, SetBundelId } from '../../store/formSlice';
 
 
 const schema = yup.object().shape({
@@ -19,16 +21,17 @@ const schema = yup.object().shape({
   // schema for app icon 
   appIcon: yup.mixed()
     .required('please upload app icon')
-    // .test('fileSize', "File Size is too large", value =>{
-    //   const sizeInBytes = 5000000;//0.5MB
-    //   return value.size <= sizeInBytes;})
     .test("type", "We only support png", function (value) {
       return value && value[0] && value[0].type === "image/png";
-    }),
+    })
 })
 
 const BasicInfo = () => {
   const [selectedImage, setSelectedImage] = useState();
+  const dispatch = useDispatch()
+
+  const state = useSelector(state => state)
+
   const imageChange = (e) => {
     if (e.target.files && e.target.files.length > 0) {
       setSelectedImage(e.target.files[0]);
@@ -41,7 +44,13 @@ const BasicInfo = () => {
   });
 
 
-  const onSubmit = data => console.log(data);
+  const onSubmit = (data) =>{
+    dispatch(SetAppName(data.appName))
+    dispatch(SetUrl(data.websiteLink))
+    dispatch(SetBundelId(data.packageName))
+    dispatch(SetAppIcon((data.appIcon)))
+
+  } ;
   return (
     <>
       <div className="flex flex-col w-full my-4 md:flex-row-reverse md:w-3/4 items-center justify-center mx-auto  rounded-2xl shadow-2xl md:p-12 bg-white">
@@ -75,10 +84,7 @@ const BasicInfo = () => {
               {selectedImage && (
                 <div className='w-36 border-2 rounded-lg p-2 mt-4'>
                   <img src={URL.createObjectURL(selectedImage)} alt="Thumb" />
-                </div> ||
-                <div>
-                  select icon
-                </div>
+                </div> 
               ) ||
                 <div className='border-2 w-36 h-36 p-4 rounded-lg flex justify-center items-center text-center mt-4'>
                   Select App Icon

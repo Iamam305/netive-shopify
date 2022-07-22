@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { BlockPicker } from 'react-color';
+import { useDispatch, useSelector } from 'react-redux';
+import { SetPrimaryColor, SetPrimaryColorDark, SetColor, SetSplashScreen } from '../../store/formSlice';
 
 
 // 
@@ -28,8 +30,20 @@ const FormStyle = () => {
     const [showColorPicker, setShowColorPicker] = useState(false)
 
 
+    const state = useSelector(state => state)
 
-    const onSubmit = data => console.log(data);
+    const dispatch = useDispatch()
+
+
+    const onSubmit = (data) => {
+    dispatch(SetPrimaryColor(data.primaryColor))
+    dispatch(SetPrimaryColorDark(data.primaryColorDark))
+    dispatch(SetColor(data.color))
+    dispatch(SetSplashScreen(data.splashScreen))
+    console.log(data)
+    }
+
+    console.log( state)
 
     const { register, handleSubmit, formState: { errors }, setValue } = useForm({
         resolver: yupResolver(schema),
@@ -78,7 +92,7 @@ const FormStyle = () => {
                             <BlockPicker id="primaryColorDark" color={primaryColorDark} onChange={(updateColor) => colorChange(updateColor, setPrimaryColorDark, 'primaryColorDark')} className="mt-2 " onClickOutside={() => setShowPrimaryDarkPicker(false)} /> : ""
                         }
                         <input type={'hidden'} onChange={e => e.target.value = primaryColorDark} name="primaryColorDark"  {...register("primaryColorDark")} />
-                        <p className='text-xs text-red-600'>{errors.primaryColor?.message}</p>
+                        <p className='text-xs text-red-600'>{errors.primaryColorDark?.message}</p>
                     </span>
 
                     <span className="flex flex-col my-3">
@@ -88,7 +102,7 @@ const FormStyle = () => {
                             <BlockPicker id="primaryColorDark" color={color} onChange={(updateColor) => colorChange(updateColor, setcolor, 'color')} className="mt-2 " onClickOutside={() => setShowPrimaryDarkPicker(false)} /> : ""
                         }
                         <input type={'hidden'} onChange={e => e.target.value = color} name="color"  {...register("color")} />
-                        <p className='text-xs text-red-600'>{errors.primaryColor?.message}</p>
+                        <p className='text-xs text-red-600'>{errors.color?.message}</p>
                     </span>
 
                     <div>
