@@ -1,7 +1,8 @@
 
 import './App.css'
-import Form from './components/Form'
+import Form from './pages/Form'
 import Sidebar from './components/sidebar'
+import Register from './pages/Register'
 
 
 function App() {
@@ -15,7 +16,9 @@ function App() {
 
     <div className='min-h-screen flex flex-col justify-center items-center w-full ml-72'>
 
-      <Form />
+      <Register/>
+
+      {/* <Form /> */}
       {/* <Test/> */}
      
     </div>

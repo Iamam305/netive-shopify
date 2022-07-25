@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import { SetAppName, SetAppIcon, SetUrl, SetBundelId } from '../../store/formSlice';
+import {incrementFormStep, SetAppName, SetAppIcon, SetUrl, SetBundelId } from '../../store/formSlice';
 
 
 const schema = yup.object().shape({
@@ -49,6 +49,10 @@ const BasicInfo = () => {
     dispatch(SetUrl(data.websiteLink))
     dispatch(SetBundelId(data.packageName))
     dispatch(SetAppIcon((data.appIcon)))
+    dispatch(incrementFormStep())
+    
+
+    console.log(data)
 
   } ;
   return (
@@ -98,7 +102,7 @@ const BasicInfo = () => {
 
           </span>
 
-          <button className="px-12 py-3 bg-black text-white rounded-md" onClick={onSubmit}>NEXT</button>
+          <button className="px-12 py-3 bg-black text-white rounded-md" type='submit' >NEXT</button>
         </form>
       </div>
     </>

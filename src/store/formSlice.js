@@ -1,6 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
+
+  // form step 
+  formStep: 0,
   // basic information 
   appName: "",
   url: "",
@@ -36,6 +39,11 @@ const formSlice = createSlice({
   reducers: {
     // jaruri nahi hi ki reducers ka nam set se hi suru ho mujhe kuch samjh nahi aya isiliye set kar diya 
 
+    // formstep 
+
+    incrementFormStep: (state, action) => { state.formStep += 1 },
+    decrementFormStep: (state, action) => { state.formStep -= 1 },
+
     // basic infor reducer 
     SetAppName: (state, action) => { state.appName = action.payload },
     SetUrl: (state, action) => { state.url = action.payload },
@@ -51,20 +59,20 @@ const formSlice = createSlice({
 
     // os reducers 
 
-    SetAndroidOs:(state, action)=>{state.AndroidOs = action.payload},
-    SetIOS:(state, action)=>{state.IOS = action.payload},
-    SetFullName:(state, action)=>{state.fullName = action.payload},
-    SetOrgnizationName:(state, action)=>{state.organizationName = action.payload},
-    SetKeyAlias:(state, action)=>{state.keyAlias = action.payload},
-    SetKeystorePass:(state, action)=>{state.keystorePass = action.payload},
-    SetSigningCertificate:(state, action)=>{state.signingCertificate = action.payload},
-    SetProvisioningProfile:(state, action)=>{state.provisioningProfile = action.payload},
-    SetIosPassword:(state, action)=>{state.iosPassword= action.payload},
+    SetAndroidOs: (state, action) => { state.AndroidOs = action.payload },
+    SetIOS: (state, action) => { state.IOS = action.payload },
+    SetFullName: (state, action) => { state.fullName = action.payload },
+    SetOrgnizationName: (state, action) => { state.organizationName = action.payload },
+    SetKeyAlias: (state, action) => { state.keyAlias = action.payload },
+    SetKeystorePass: (state, action) => { state.keystorePass = action.payload },
+    SetSigningCertificate: (state, action) => { state.signingCertificate = action.payload },
+    SetProvisioningProfile: (state, action) => { state.provisioningProfile = action.payload },
+    SetIosPassword: (state, action) => { state.iosPassword = action.payload },
 
 
   }
 });
 
-export const { SetAppName, SetUrl, SetBundelId, SetAppIcon, SetPrimaryColor, SetPrimaryColorDark, SetColor, SetSplashScreen, SetAndroidOs, SetIOS, SetFullName, SetOrgnizationName, SetKeyAlias, SetKeystorePass, SetSigningCertificate, SetProvisioningProfile, SetIosPassword } = formSlice.actions
+export const { incrementFormStep, decrementFormStep, SetAppName, SetUrl, SetBundelId, SetAppIcon, SetPrimaryColor, SetPrimaryColorDark, SetColor, SetSplashScreen, SetAndroidOs, SetIOS, SetFullName, SetOrgnizationName, SetKeyAlias, SetKeystorePass, SetSigningCertificate, SetProvisioningProfile, SetIosPassword } = formSlice.actions
 
-export const reducer = formSlice.reducer
+export default formSlice.reducer

@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { BlockPicker } from 'react-color';
 import { useDispatch, useSelector } from 'react-redux';
-import { SetPrimaryColor, SetPrimaryColorDark, SetColor, SetSplashScreen } from '../../store/formSlice';
+import { incrementFormStep, decrementFormStep, SetPrimaryColor, SetPrimaryColorDark, SetColor, SetSplashScreen } from '../../store/formSlice';
 
 
 // 
@@ -36,22 +36,23 @@ const FormStyle = () => {
 
 
     const onSubmit = (data) => {
-    dispatch(SetPrimaryColor(data.primaryColor))
-    dispatch(SetPrimaryColorDark(data.primaryColorDark))
-    dispatch(SetColor(data.color))
-    dispatch(SetSplashScreen(data.splashScreen))
-    console.log(data)
+        dispatch(SetPrimaryColor(data.primaryColor))
+        dispatch(SetPrimaryColorDark(data.primaryColorDark))
+        dispatch(SetColor(data.color))
+        dispatch(SetSplashScreen(data.splashScreen))
+        dispatch(incrementFormStep())
+
     }
 
-    console.log( state)
+    console.log(state)
 
     const { register, handleSubmit, formState: { errors }, setValue } = useForm({
         resolver: yupResolver(schema),
         defaultValues: {
             primaryColor: '#ffd622',
             primaryColorDark: '#ffd622',
-            color:"#222222",
-            splashScreen:'fade'
+            color: "#222222",
+            splashScreen: 'fade'
         }
     });
 
@@ -125,7 +126,7 @@ const FormStyle = () => {
                                 NO ANIMATION SPLASH SCREEN
                             </label>
 
-                        
+
                             <label htmlFor="fade" className='text-xl font-extrabold text-gray-600 flex items-center my-2 
                             hover:bg-gray-50 p-2 rounded-xl cursor-pointer'>
                                 <input
@@ -137,7 +138,7 @@ const FormStyle = () => {
                                     className='checked:bg-yello-500 text-yellow-500
                                      checked:bg-[url(none)] p-2 mx-2'
                                 />
-                               SIMPLE FADE IN / OUT SPLASH
+                                SIMPLE FADE IN / OUT SPLASH
                             </label>
                             <label htmlFor="zoom" className='text-xl font-extrabold text-gray-600 flex items-center my-2 
                             hover:bg-gray-50 p-2 rounded-xl cursor-pointer'>
@@ -152,12 +153,12 @@ const FormStyle = () => {
                                 />
                                 ZOOM IN TRANSITION
                             </label>
-                          
-                            
+
+
 
                             <p className='text-xs text-red-600'>{errors.splashScreen?.message}</p>
-                            
-                        
+
+
 
                         </div>
 
@@ -165,8 +166,12 @@ const FormStyle = () => {
 
 
 
+                    <span className='flex justify-evenly'>
 
-                    <button className="px-12 py-3 bg-black text-white rounded-md" type='submit'>NEXT</button>
+                        <button className="px-12 py-3 bg-black text-white rounded-md"  onClick={() => dispatch(decrementFormStep())}>BACK</button>
+                        <button className="px-12 py-3 bg-black text-white rounded-md" type='submit'>NEXT</button>
+                    </span>
+
                 </form>
             </div>
 

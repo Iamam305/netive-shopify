@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { useDispatch, useSelector } from 'react-redux';
-import { SetAndroidOs, SetIOS, SetFullName, SetOrgnizationName, SetKeyAlias, SetKeystorePass, SetSigningCertificate, SetProvisioningProfile, SetIosPassword } from '../../store/formSlice';
+import { incrementFormStep, decrementFormStep, SetAndroidOs, SetIOS, SetFullName, SetOrgnizationName, SetKeyAlias, SetKeystorePass, SetSigningCertificate, SetProvisioningProfile, SetIosPassword } from '../../store/formSlice';
 
 const schema = yup.object().shape({
     AndroidOs: yup.boolean(),
@@ -37,7 +37,7 @@ const schema = yup.object().shape({
         is: true,
         then: yup.mixed().required("upload your provisioning profile file"),
     }),
-    
+
     iosPassword: yup.string().when('IOS', {
         is: true,
         then: yup.string().required("fill your password")
@@ -68,9 +68,9 @@ const OsForm = () => {
         dispatch(SetSigningCertificate(data.signingCertificate))
         dispatch(SetProvisioningProfile(data.provisioningProfile))
         dispatch(SetIosPassword(data.iosPassword))
+        dispatch(incrementFormStep())
 
-        console.log(state)
-        console.log(data);
+
     }
 
     const { register, handleSubmit, formState: { errors }, } = useForm({
@@ -186,17 +186,15 @@ const OsForm = () => {
                             <p className='text-xs text-red-600'>{errors.iosPassword?.message}</p>
 
                         </span>
-
+ 
                     </>) : ''}
 
 
+                    <span className='flex justify-evenly'>
 
-
-
-
-
-
-                    <button className="px-12 py-3 bg-black text-white rounded-md" type='submit'>NEXT</button>
+                        <button className="px-12 py-3 bg-black text-white rounded-md" onClick={() => dispatch(decrementFormStep())}>BACK</button>
+                        <button className="px-12 py-3 bg-black text-white rounded-md" type='submit'>NEXT</button>
+                    </span>
                 </form>
             </div>
 

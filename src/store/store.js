@@ -1,9 +1,13 @@
 
 import { configureStore } from "@reduxjs/toolkit";
-import {reducer} from './formSlice'
+import formReducer from "./formSlice";
+import authReducer from "./auth/authSlice";
 
 export const store = configureStore({
-    reducer,
+    reducer:{
+      formReducer,
+      authReducer
+    },
     middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: false,
