@@ -5,6 +5,7 @@ const register = (username, email, password, password2) => {
     username,
     email,
     password,
+    password2,
   });
 };
 const login = (username, password) => {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect  } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { Redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { login } from '../store/auth/authSlice';
 import { clearMessage } from '../store/auth/messageSlice';
@@ -13,10 +13,12 @@ const Login = () => {
     const { isLoggedIn } = useSelector((state) => state.auth || {});
     const { message } = useSelector((state) => state.message || {});
     const dispatch = useDispatch();
+    const nav = useNavigate();
 
 
     useEffect(() => {
         dispatch(clearMessage());
+      
     }, [dispatch]);
 
 
@@ -26,16 +28,21 @@ const Login = () => {
         dispatch(login({ username, password }))
           .unwrap()
           .then(() => {
-            props.history.push("/profile");
+            props.history.push("/");
             window.location.reload();
           })
           .catch(() => {
             setLoading(false);
-          });
+          })
     
       };
+     
       
       const { register, handleSubmit, watch, formState: { errors } } = useForm();
+
+      if (isLoggedIn) {
+        return nav("/")
+      }
       return (
         <div className="h-full min-h-screen flex justify-center items-center bg-slate-50">
         <div className="w-full h-full  max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 my-auto ">
