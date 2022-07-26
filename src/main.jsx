@@ -8,6 +8,7 @@ import {BrowserRouter, Routes, Route,} from "react-router-dom";
 
 import Register from './pages/Register'
 import Form from './pages/Form'
+import Login from './pages/login';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
@@ -17,6 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Routes> 
       <Route path="/" element={<App />} />
       <Route path="/register" element={<Register/>} />
+      <Route path="/signin" element={<Login/>} />
       <Route path="/create-app" element={<Form/>} />
 
       
