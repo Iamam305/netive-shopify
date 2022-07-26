@@ -1,34 +1,34 @@
 import { useState, useEffect } from "react"
 import React from 'react'
 import { useForm } from "react-hook-form";
-import { registerUser, reset } from "../store/auth/authSlice";
+import { registerUser  } from "../store/auth/authSlice";
+import { clearMessage } from "../store/auth/messageSlice";
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-   const { user, isLoading, isError, isSuccess, message} = useSelector(state => state.auth || {})
+    const [successful, setSuccessful] = useState(false);
+    const { message } = useSelector((state) => state.message || {});
+    const dispatch = useDispatch();
     const navigate = useNavigate()
-    const dispatch = useDispatch()
+    
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
     useEffect(() => {
-        if (isError) {
-         console.log(message)
-        }
-    
-        if (isSuccess || user) {
-          navigate('/')
-        }
-    
-        dispatch(reset())
-      }, [user, isError, isSuccess, message, navigate, dispatch])
+        dispatch(clearMessage());
+      }, [dispatch]);
+
     const onSubmit = data => {
-        // if(data.password !== data.password2){
-        //     console.log("lol")
-        // }
-        const userData = data
-        dispatch(registerUser(userData));
-        console.log(data)
+       const { username, email, password, password2 } = data
+       setSuccessful(false);
+       dispatch(registerUser({ username, email, password, password2 }))
+         .unwrap()
+         .then(() => {
+           setSuccessful(true);
+         })
+         .catch(() => {
+           setSuccessful(false);
+         });
       
     }
 
