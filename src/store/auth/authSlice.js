@@ -44,12 +44,14 @@ export const login = createAsyncThunk(
 export const logout = createAsyncThunk("auth/logout", async () => {
   await AuthService.logout();
 });
-const initialState = user
+const initialState =user
   ? { isLoggedIn: true, user }
   : { isLoggedIn: false, user: null };
+  
 const authSlice = createSlice({
   name: "auth",
   initialState,
+ 
   extraReducers: {
     [registerUser.fulfilled]: (state, action) => {
       state.isLoggedIn = false;
@@ -74,3 +76,19 @@ const authSlice = createSlice({
 const { reducer } = authSlice;
 
 export default authSlice.reducer
+
+// import { createSlice } from '@reduxjs/toolkit'
+
+// const initialState = {
+
+// }
+
+// const authSlice = createSlice({
+//   name: second,
+//   initialState,
+//   reducers: {}
+// });
+
+// export const {} = authSlice.actions
+
+// export default authSlice.reducer

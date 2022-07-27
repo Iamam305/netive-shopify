@@ -6,9 +6,9 @@ import messageReducer from "./auth/messageSlice";
 
 export const store = configureStore({
     reducer:{
-      formReducer,
-      authReducer,
-      messageReducer
+      form:formReducer,
+      auth:authReducer,
+      message:messageReducer
     },
     middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

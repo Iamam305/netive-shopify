@@ -10,16 +10,23 @@ const Login = () => {
 
 
     const [loading, setLoading] = useState(false);
-    const { isLoggedIn } = useSelector((state) => state.auth || {});
-    const { message } = useSelector((state) => state.message || {});
+    const  isLoggedIn  = useSelector((state) => state.auth);
+    console.log(isLoggedIn);
+    const { message } = useSelector((state) => state.message );
     const dispatch = useDispatch();
-    const nav = useNavigate();
+    const navigate = useNavigate();
 
 
     useEffect(() => {
         dispatch(clearMessage());
       
-    }, [dispatch]);
+        // if (isLoggedIn) {
+        //        navigate("/")
+        //        console.log(isLoggedIn)
+        //       }
+    }, [dispatch, isLoggedIn]);
+
+    
 
 
     const onSubmit = (data) => {
@@ -28,8 +35,10 @@ const Login = () => {
         dispatch(login({ username, password }))
           .unwrap()
           .then(() => {
-            props.history.push("/");
-            window.location.reload();
+            if(isLoggedIn){
+
+                navigate("/")
+            }
           })
           .catch(() => {
             setLoading(false);
@@ -40,11 +49,9 @@ const Login = () => {
       
       const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
-      if (isLoggedIn) {
-        return nav("/")
-      }
+    //  
       return (
-        <div className="h-full min-h-screen flex justify-center items-center bg-slate-50">
+        <div className="h-full min-h-screen flex justify-center items-center bg-slate-50 shadow-2xl">
         <div className="w-full h-full  max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 my-auto ">
             <div className="px-6 py-4">
                 <h2 className="text-3xl font-bold text-center text-gray-700 dark:text-white">Brand</h2>

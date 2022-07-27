@@ -36,7 +36,7 @@ const Register = () => {
     return (
         <>
 
-            <div className="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
+            <div className="w-full max-w-sm mx-auto overflow-hidden shadow-2xl bg-white rounded-lg  dark:bg-gray-800">
                 <div className="px-6 py-4">
                     <h2 className="text-3xl font-bold text-center text-gray-700 dark:text-white">Brand</h2>
 

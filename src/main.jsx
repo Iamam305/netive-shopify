@@ -12,7 +12,6 @@ import Login from './pages/login';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
-  <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
       <Routes> 
@@ -20,11 +19,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/register" element={<Register/>} />
       <Route path="/signin" element={<Login/>} />
       <Route path="/create-app" element={<Form/>} />
-
-      
-
       </Routes>
       </BrowserRouter>
     </Provider>
-  </React.StrictMode>
+  
 )
