@@ -8,9 +8,10 @@ const register = (username, email, password, password2) => {
     password2,
   });
 };
+
 const login = (username, password) => {
   return axios
-    .post(API_URL + "auth/", {
+    .post(API_URL + "auth", {
       username,
       password,
     })

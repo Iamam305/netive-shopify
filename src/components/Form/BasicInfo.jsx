@@ -48,7 +48,7 @@ const BasicInfo = () => {
     dispatch(SetAppName(data.appName))
     dispatch(SetUrl(data.websiteLink))
     dispatch(SetBundelId(data.packageName))
-    dispatch(SetAppIcon((data.appIcon)))
+    dispatch(SetAppIcon((data.appIcon[0])))
     dispatch(incrementFormStep())
     
 

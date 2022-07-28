@@ -24,7 +24,7 @@ export default function Form() {
 
         <Sidebar />
 
-        <div className='min-h-screen flex flex-col justify-center items-center w-full ml-72 p-4'>
+        <div className='min-h-screen flex flex-col justify-center items-center  w-full ml-72 px-4 '>
           <h2>{formStep+1}/5</h2>
           <div className="w-full md:w-3/4 h-1 mt-10 mb-4 bg-gray-200">
             <div className={`h-full ${formStep === 0 ? 'w-0' : ""} 

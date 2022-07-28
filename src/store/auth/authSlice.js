@@ -22,6 +22,7 @@ export const registerUser = createAsyncThunk(
       return thunkAPI.rejectWithValue();
     }
   }
+
 );
 export const login = createAsyncThunk(
   "auth/login",
@@ -44,7 +45,7 @@ export const login = createAsyncThunk(
 export const logout = createAsyncThunk("auth/logout", async () => {
   await AuthService.logout();
 });
-const initialState =user
+const initialState = user
   ? { isLoggedIn: true, user }
   : { isLoggedIn: false, user: null };
   

@@ -54,7 +54,7 @@ const OsForm = () => {
     const [ios, setIOS] = useState(false)
 
     const dispatch = useDispatch()
-    const state = useSelector(state => state)
+    const Formdata = useSelector(state => state.form)
 
     // console.log(android)
 
