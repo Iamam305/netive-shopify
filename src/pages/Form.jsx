@@ -20,13 +20,13 @@ export default function Form() {
 
   return (
     <>
-      <div className="flex justify-between p-4 bg-gray-900">
+      <div className="flex justify-between p-4 ">
 
-        <Sidebar />
+     
 
-        <div className=' flex flex-col justify-center items-center  w-full ml-72 px-4 '>
+        <div className=' flex flex-col justify-center items-center  w-full  px-4 '>
           <h2>{formStep+1}/5</h2>
-          <div className="w-full md:w-3/4 h-1 mt-10 mb-4 bg-gray-200">
+          <div className="w-full  h-1 mt-10 mb-4 bg-gray-200">
             <div className={`h-full ${formStep === 0 ? 'w-0' : ""} 
                             ${formStep === 1 ? 'w-1/4' : ""} 
                             ${formStep === 2 ? 'w-2/4' : ""} 

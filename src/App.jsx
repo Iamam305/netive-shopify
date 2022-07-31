@@ -32,16 +32,7 @@ function App() {
 
     return (
       <>
-        <div className="flex justify-between p-4 ">
-          <Sidebar />
-          <div className='min-h-screen flex flex-col justify-center items-center w-full ml-72'>
             <AppTable/>
-            <StatsHeader />
-            <p>{user?JSON.stringify(user.token):""}</p>
-          </div>
-        </div>
-
-
       </>
     )
 }

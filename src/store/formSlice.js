@@ -7,7 +7,7 @@ const initialState = {
   // basic information 
   appName: "",
   url: "",
-  bundelId: "",
+  package_name: "",
   appIcon: "",
   // styling
 
@@ -47,15 +47,15 @@ const formSlice = createSlice({
     // basic infor reducer 
     SetAppName: (state, action) => { state.appName = action.payload },
     SetUrl: (state, action) => { state.url = action.payload },
-    SetBundelId: (state, action) => { state.bundelId = action.payload },
+    SetBundelId: (state, action) => { state.package_name = action.payload },
     SetAppIcon: (state, action) => { state.appIcon = action.payload },
 
     // styling reducers 
 
     SetPrimaryColor: (state, action) => { state.primaryColor = action.payload },
-    SetPrimaryColorDark: (state, action) => { state.primaryColorDark = action.payload },
-    SetColor: (state, action) => { state.color = action.payload },
-    SetSplashScreen: (state, action) => { state.splashScreen = action.payload },
+    SetPrimaryColorDark: (state, action) => { state.primaryColorDark  = action.payload },
+    SetColor: (state, action) => { state.colorAccent  = action.payload },
+    SetSplashScreen: (state, action) => { state.splashScreenType  = action.payload },
 
     // os reducers 
 

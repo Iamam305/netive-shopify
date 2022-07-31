@@ -57,7 +57,7 @@ const BasicInfo = () => {
   } ;
   return (
     <>
-      <div className="flex flex-col w-full my-4 md:flex-row-reverse md:w-3/4 items-center justify-center mx-auto  rounded-2xl shadow-2xl md:p-12 bg-white">
+      <div className="flex flex-col w-full my-4 md:flex-row-reverse  items-center justify-center mx-auto  rounded-2xl shadow-2xl md:p-12 bg-white">
 
         <img src={"https://i.ibb.co/hL8zGgQ/Building-Product.png"} alt="" className="absolute md:static md:z-0 -z-30 md:w-3/5" />
 

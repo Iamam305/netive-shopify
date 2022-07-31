@@ -22,7 +22,7 @@ const AdditionalFeatures = () => {
     });
     return (
         <>
-            <div className="flex flex-col w-full md:flex-row-reverse md:w-4/5 items-center justify-center mx-auto my-auto  rounded-2xl shadow-2xl md:p-12 ">
+            <div className="flex flex-col w-full md:flex-row-reverse  items-center justify-center mx-auto my-auto  rounded-2xl shadow-2xl md:p-12 ">
 
                 <img src={"https://i.ibb.co/2WX6F4z/Creating-Mobile-App.png"} alt="" className="absolute md:static md:z-0 -z-30 md:w-3/5" />
 

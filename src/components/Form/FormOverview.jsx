@@ -13,7 +13,7 @@ const FormOverview = () => {
 
 
   return (
-    <div className=" w-full  md:w-4/5  mx-auto my-auto  rounded-2xl shadow-2xl md:p-12  ">
+    <div className=" w-full    mx-auto my-auto  rounded-2xl shadow-2xl md:p-12  ">
       <h2 className='text-3xl font-bold text-yellow-500 drop-shadow-lg  py-4 '>REVIEW YOUR INFORMATION BEFORE SUBMITTING</h2>
       <div className='flex w-full mt-4 h-screen '>
         <ul className='w-full'>
