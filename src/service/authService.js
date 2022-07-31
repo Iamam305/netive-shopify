@@ -11,14 +11,15 @@ const register = (username, email, password, password2) => {
 
 const login = (username, password) => {
   return axios
-    .post(API_URL + "auth", {
+    .post(API_URL+"auth/", {
       username,
       password,
     })
     .then((response) => {
-      if (response.data.accessToken) {
+      if (response.data.token) {
         localStorage.setItem("user", JSON.stringify(response.data));
       }
+      console.log(response)
       return response.data;
     });
 };

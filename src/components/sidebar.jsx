@@ -6,7 +6,7 @@ const Sidebar = () => {
     return (
         <>
 
-            <div className="flex flex-col w-72 min-h-[calc(100vh_-_2rem)] px-4 py-8 bg-gray-900 border-r rounded-lg shadow-lg  border-gray-600 fixed">
+            <div className="flex flex-col w-72 min-h-[calc(100vh_-_2rem)] px-4 py-8 bg-gray-800 border-r rounded-lg shadow-lg  border-gray-600 fixed">
                <img src={logo} alt="" className=''/>
                 <div className="flex flex-col items-center mt-6 -mx-2">
                     <img className="object-cover w-24 h-24 mx-2 rounded-full" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="avatar" />

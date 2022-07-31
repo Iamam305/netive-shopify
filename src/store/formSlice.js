@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import userService from '../service/user-service'
+
 const initialState = {
 
   // form step 
@@ -16,7 +16,7 @@ const initialState = {
   color: '',
   splashScreen: "",
 
-  // OS 
+  // OS  
   AndroidOs: "",
   IOS: "",
   fullName: "",
@@ -27,36 +27,10 @@ const initialState = {
   provisioningProfile: "",
   iosPassword: "",
 
-  // app data submition 
-
-  isError: false,
-  isSuccess: false,
-  isLoading: false,
-  message: '',
-
-
-
 }
 
 
-// Create new app
-export const createApp = createAsyncThunk(
-  'app/create',
-  async (appData, thunkAPI) => {
-    try {
-      const token = thunkAPI.getState().auth.user.token
-      return await userService.createApp(appData, token)
-    } catch (error) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString()
-      return thunkAPI.rejectWithValue(message)
-    }
-  }
-)
+
 
 const formSlice = createSlice({
   name: "form",
@@ -97,22 +71,7 @@ const formSlice = createSlice({
 
 
   },
-  extraReducers: (builder) => {
-    builder
-      .addCase(createApp.pending, (state) => {
-        state.isLoading = true
-      })
-      .addCase(createApp.fulfilled, (state, action) => {
-        state.isLoading = false
-        state.isSuccess = true
-        state.Apps.push(action.payload)
-      })
-      .addCase(createApp.rejected, (state, action) => {
-        state.isLoading = false
-        state.isError = true
-        state.message = action.payload
-      })
-  }
+
 
 });
 
