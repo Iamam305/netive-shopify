@@ -10,6 +10,8 @@ const FormOverview = () => {
 
   }
 
+  console.log(FormData)
+
 
 
   return (

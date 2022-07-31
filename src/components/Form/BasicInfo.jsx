@@ -57,34 +57,34 @@ const BasicInfo = () => {
   } ;
   return (
     <>
-      <div className="flex flex-col w-full my-4 md:flex-row-reverse  items-center justify-center mx-auto  rounded-2xl shadow-2xl md:p-12 bg-white">
+      <div className="flex flex-col w-full my-4 md:flex-row-reverse  items-center justify-center mx-auto  rounded-2xl shadow-2xl md:p-12 bg-gray-800">
 
         <img src={"https://i.ibb.co/hL8zGgQ/Building-Product.png"} alt="" className="absolute md:static md:z-0 -z-30 md:w-3/5" />
 
-        <form onSubmit={handleSubmit(onSubmit)} className="w-full md:w-2/5 backdrop-blur-sm bg-white/30 p-6 md:p-1">
+        <form onSubmit={handleSubmit(onSubmit)} className="w-full md:w-2/5 backdrop-blur-sm  p-6 md:p-1">
 
           <h2 className="text-yellow-400 text-3xl font-bold mb-8">BASIC INFORMATION</h2>
 
           <span className="flex flex-col my-3">
-            <label htmlFor="appName" className="text-gray-600 mb-2 font-bold">App Name</label>
+            <label htmlFor="appName" className="text-gray-50 mb-2 font-bold">App Name</label>
             <input {...register("appName")} name="appName" placeholder={'MyApp'} id={"appName"} className="p-3 border-2 rounded-lg" />
             <p className='text-xs text-red-600'>{errors.appName?.message}</p>
           </span>
 
           <span className="flex flex-col my-3">
-            <label htmlFor="websiteLink" name="websiteLink" className="text-gray-600 mb-2 font-bold">Website Link</label>
+            <label htmlFor="websiteLink" name="websiteLink" className="text-gray-50 mb-2 font-bold">Website Link</label>
             <input {...register("websiteLink")} placeholder={'https://example.com/'} id="websiteLink" className="p-3 border-2 rounded-lg" />
             <p className='text-xs text-red-600'>{errors.websiteLink?.message}</p>
           </span>
 
           <span className="flex flex-col my-3">
-            <label htmlFor="packageName" className="text-gray-600 mb-2 font-bold">Package/Bundle ID</label>
+            <label htmlFor="packageName" className="text-gray-50 mb-2 font-bold">Package/Bundle ID</label>
             <input  {...register("packageName")} name="packageName" placeholder={"com.myapp.app"} id="packageName" className="p-3 border-2 rounded-lg" />
             <p className='text-xs text-red-600'>{errors.packageName?.message}</p>
           </span>
 
           <span className="flex flex-col my-3">
-            <label htmlFor="appIcon" className="text-gray-600 mb-2 font-bold">App Icon
+            <label htmlFor="appIcon" className="text-gray-50 mb-2 font-bold">App Icon
               {selectedImage && (
                 <div className='w-36 border-2 rounded-lg p-2 mt-4'>
                   <img src={URL.createObjectURL(selectedImage)} alt="Thumb" />

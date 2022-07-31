@@ -17,6 +17,7 @@ const initialState = {
   splashScreen: "",
 
   // OS  
+  platform:"",
   AndroidOs: "",
   IOS: "",
   fullName: "",

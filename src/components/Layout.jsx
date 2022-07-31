@@ -9,7 +9,7 @@ const Layout = () => {
     <Sidebar/>
     <div className='min-h-screen flex flex-col justify-center items-center w-full ml-72 px-2'>
         <StatsHeader/>
-        <Outlet/>
+        <Outlet className=""/>
     </div>
     </div>
   )

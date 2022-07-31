@@ -20,8 +20,8 @@ const AppTable = () => {
   }
 
   return (
-    <div className='w-4/5'>
-      <div className="w-full  mx-auto rounded-md overflow-auto">
+    <div className='md:w-full p-4 '>
+      <div className="w-full  mx-auto  overflow-auto bg-white shadow-2xl shadow-black  rounded-md">
         <table className="w-full table-auto rounded-md border-collapse border-spacing-0">
           
           <thead className='rounded-md bg-yellow-500 overflow-auto'>

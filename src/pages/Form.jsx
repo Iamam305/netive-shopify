@@ -20,19 +20,19 @@ export default function Form() {
 
   return (
     <>
-      <div className="flex justify-between p-4 ">
+      <div className="flex justify-between p-4 w-full">
 
      
 
-        <div className=' flex flex-col justify-center items-center  w-full  px-4 '>
+        <div className=' flex flex-col justify-center items-center font-bold text-yellow-500 w-full  pt-4 '>
           <h2>{formStep+1}/5</h2>
-          <div className="w-full  h-1 mt-10 mb-4 bg-gray-200">
+          <div className="w-full  h-1 my-4  bg-gray-200">
             <div className={`h-full ${formStep === 0 ? 'w-0' : ""} 
                             ${formStep === 1 ? 'w-1/4' : ""} 
                             ${formStep === 2 ? 'w-2/4' : ""} 
                             ${formStep === 3 ? 'w-3/4' : ""} 
                             ${formStep === 4 ? 'w-4/4' : ""} 
-                          bg-green-500 `}></div>
+                          bg-yellow-500 `}></div>
           </div>
           {formStep === 0 ? <BasicInfo /> : ""}
           {formStep === 1 ? <FormStyle /> : ""}

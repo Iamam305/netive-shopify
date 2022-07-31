@@ -15,9 +15,15 @@ const API_URL = "https://netive-backend.herokuapp.com";
     return axios.get('https://netive-backend.herokuapp.com/api-info/apps/', { headers: authHeader() })
     
    }
+
+   const getStats = async() =>{
+    return axios.get('https://netive-backend.herokuapp.com/api-info/dashboard/', { headers: authHeader() })
+    
+   }
   const userService = {
     createApp,
-    getApp
+    getApp,
+    getStats
   }
 
   export default userService

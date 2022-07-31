@@ -1,28 +1,48 @@
-import React,{useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
+import userService from '../service/user-service';
+const Appdata = {
 
+  platform: ['android'],
+  appName: 'String',
+  url: 'String',
+  appIcon: "",
+  package_name: 'com.app.name',
+  primaryColor: '#fff',
+  primaryColorDark: "#ff2",
+  colorAccent: '#ff3',
+  splashScreenType: 1,
+  keystoreSetting: 'new',
+  keystoreName: 'String',
+  Name: 'String',
+  OrganizationUnit: 'String',
+  Organization: 'String',
+  City: 'String',
+  State: 'String',
+  CountryCode: 'IN',
+  keystorePassword: "String",
+  keyAlias: 'String',
+  keyPassword: 'String',
+  admobEnable: false,
+  pushNotifications: false,
 
+}
 
 
 const Test = () => {
-    const [data, setData] = useState("")
-    const onSubmit = data => console.log(data);
-    const { register, handleSubmit, formState: { errors }, setValue } = useForm({
-        // resolver: yupResolver(schema)
-    });
+  const [data, setData] = useState(Appdata)
+  const createApp = ()=>{
+    userService.createApp(data)
+
+}
+  
+
   return (
     <div>
-        <form onSubmit={handleSubmit(onSubmit)}>
-
-            <input type="text" name ='1' onChange={e => setValue("second", e.target.value)}/>
-            <input type="text" name ='two' value={data} {...register("second")}/>
-
-            <input type="submit" />
-
-        </form>
-
+   
+      <button onClick={() =>createApp()}> click me</button>
 
     </div>
   )

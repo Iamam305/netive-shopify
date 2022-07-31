@@ -9,6 +9,7 @@ import { logout } from './store/auth/authSlice'
 import StatsHeader from './components/StatsHeader'
 import AppTable from './components/AppTable'
 import { BrowserRouter, Routes, Route, } from "react-router-dom";
+import Test from './components/test'
 
 
 
@@ -32,6 +33,7 @@ function App() {
 
     return (
       <>
+      <Test/>
             <AppTable/>
       </>
     )
