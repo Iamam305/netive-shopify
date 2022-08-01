@@ -1,12 +1,16 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useSelector } from 'react-redux'
 import userService from '../../service/user-service'
-const FormOverview = () => {
 
-  const FormData = useSelector(state => state.form)
+
+const FormOverview = () => {
+  
+
+  const Form_Data = useSelector(state => state.form)
+
 
   const createApp = ()=>{
-      userService.createApp(FormData)
+      userService.createApp(Form_Data)
 
   }
 
@@ -17,7 +21,7 @@ const FormOverview = () => {
   return (
     <div className=" w-full    mx-auto my-auto  rounded-2xl shadow-2xl md:p-12  ">
       <h2 className='text-3xl font-bold text-yellow-500 drop-shadow-lg  py-4 '>REVIEW YOUR INFORMATION BEFORE SUBMITTING</h2>
-      <div className='flex w-full mt-4 h-screen '>
+      {/* <div className='flex w-full mt-4 h-screen '>
         <ul className='w-full'>
           <li className='text-lg font-bold text-gray-500 flex w-full justify-around p-2'>
             <span className='w-1/2 '>App Name :</span>
@@ -65,7 +69,7 @@ const FormOverview = () => {
           <hr />
 
         </ul>
-      </div>
+      </div> */}
       <button onClick={() => createApp()}>SUBMIT</button>
     </div>
   )

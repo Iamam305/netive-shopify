@@ -72,7 +72,7 @@ const FormStyle = () => {
 
                 <img src={"https://i.ibb.co/2WX6F4z/Creating-Mobile-App.png"} alt="" className="absolute md:static md:z-0 -z-30 md:w-3/5" />
 
-                <form onSubmit={handleSubmit(onSubmit)} className="w-full md:w-2/5 backdrop-blur-sm bg-white/30 p-6 md:p-1">
+                <form onSubmit={handleSubmit(onSubmit)} className="w-full md:w-2/5 backdrop-blur-sm  p-6 md:p-1">
 
                     <h2 className="text-yellow-400 text-3xl font-bold mb-8">STYLING</h2>
 
@@ -97,7 +97,7 @@ const FormStyle = () => {
                     </span>
 
                     <span className="flex flex-col my-3">
-                        <label htmlFor="primaryColorDark" className='text-gray-600 mb-2 font-bold'>Color</label>
+                        <label htmlFor="primaryColorDark" className='text-gray-600 mb-2 font-bold'>Accent Color</label>
                         <div style={{ background: color }} className="p-4 " onClick={() => { setShowColorPicker(!showColorPicker) }}></div>
                         {showColorPicker ?
                             <BlockPicker id="primaryColorDark" color={color} onChange={(updateColor) => colorChange(updateColor, setcolor, 'color')} className="mt-2 " onClickOutside={() => setShowPrimaryDarkPicker(false)} /> : ""

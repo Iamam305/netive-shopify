@@ -26,14 +26,14 @@ const AdditionalFeatures = () => {
 
                 <img src={"https://i.ibb.co/2WX6F4z/Creating-Mobile-App.png"} alt="" className="absolute md:static md:z-0 -z-30 md:w-3/5" />
 
-                <form onSubmit={handleSubmit(onSubmit)} className="w-full md:w-2/5 backdrop-blur-sm bg-white/30 p-6 md:p-1">
+                <form onSubmit={handleSubmit(onSubmit)} className="w-full md:w-2/5 backdrop-blur-sm  p-6 md:p-1">
 
                     <h2 className="text-yellow-400 text-3xl font-bold mb-8">Additional Feature</h2>
 
-                    <h2 className='text-gray-600 mb-2 font-bold text-xl'>Firebase Push Notification</h2>
+                    <h2 className='text-gray-50 mb-2 font-bold text-xl'>Firebase Push Notification</h2>
 
                     <span className="flex flex-col my-3">
-                        <label htmlFor="primaryColor" className='text-gray-600 mb-2 font-bold'>Firebase Push Notification</label>
+                        <label htmlFor="primaryColor" className='text-gray-50 mb-2 font-bold'>Firebase Push Notification</label>
 
                         <input type={'hidden'} onChange={e => e.target.value = primaryColor} name="primaryColor"  {...register("primaryColor")} />
                         <p className='text-xs text-red-600'>{errors.primaryColor?.message}</p>

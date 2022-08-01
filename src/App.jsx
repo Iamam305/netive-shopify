@@ -10,6 +10,8 @@ import StatsHeader from './components/StatsHeader'
 import AppTable from './components/AppTable'
 import { BrowserRouter, Routes, Route, } from "react-router-dom";
 import Test from './components/test'
+import OsForm from './components/Form/OsForm'
+import FormOverview from './components/Form/FormOverview'
 
 
 
@@ -33,8 +35,10 @@ function App() {
 
     return (
       <>
-      <Test/>
-            <AppTable/>
+      {/* <OsForm/> */}
+      <FormOverview/>
+      {/* <Test/> */}
+            {/* <AppTable/> */}
       </>
     )
 }

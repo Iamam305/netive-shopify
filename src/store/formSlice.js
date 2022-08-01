@@ -4,29 +4,61 @@ const initialState = {
 
   // form step 
   formStep: 0,
-  // basic information 
-  appName: "",
-  url: "",
-  package_name: "",
-  appIcon: "",
-  // styling
+  // form data preset 
+  keystoreSetting : 'new',
+  admobEnable : false,
+  pushNotifications : false,
 
-  primaryColor: '',
-  primaryColorDark: '',
-  color: '',
-  splashScreen: "",
+  
+platform : 'android',
 
-  // OS  
-  platform:"",
-  AndroidOs: "",
-  IOS: "",
-  fullName: "",
-  organizationName: "",
-  keyAlias: "",
-  keystorePass: "",
-  signingCertificate: "",
-  provisioningProfile: "",
-  iosPassword: "",
+
+appName :"app6",
+url :"https://lol.mummy",
+appIcon:[],
+
+package_name :'aaaa.app',
+primaryColor :"#fff",
+primaryColorDark :"fff",
+colorAccent: "#fff",
+
+
+splashScreenType : 1,
+
+
+keystoreSetting : 'new',
+
+keystoreName : "new",
+Name :"new",
+OrganizationUnit :"new",
+Organization :"new",
+City :"new",
+State :"new",
+CountryCode :"new",
+keystorePassword :"new",
+keyAlias :"new",
+keyPassword :"new",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+bottom_bar_items :[],
+bottom_bar_items_url :[],
+bottom_bar_items :[],
+
+
+
+
 
 }
 
@@ -49,7 +81,7 @@ const formSlice = createSlice({
     SetAppName: (state, action) => { state.appName = action.payload },
     SetUrl: (state, action) => { state.url = action.payload },
     SetBundelId: (state, action) => { state.package_name = action.payload },
-    SetAppIcon: (state, action) => { state.appIcon = action.payload },
+    SetAppIcon: (state, action) => { state.appIcon  = action.payload },
 
     // styling reducers 
 
@@ -62,13 +94,13 @@ const formSlice = createSlice({
 
     SetAndroidOs: (state, action) => { state.AndroidOs = action.payload },
     SetIOS: (state, action) => { state.IOS = action.payload },
-    SetFullName: (state, action) => { state.fullName = action.payload },
-    SetOrgnizationName: (state, action) => { state.organizationName = action.payload },
-    SetKeyAlias: (state, action) => { state.keyAlias = action.payload },
-    SetKeystorePass: (state, action) => { state.keystorePass = action.payload },
-    SetSigningCertificate: (state, action) => { state.signingCertificate = action.payload },
-    SetProvisioningProfile: (state, action) => { state.provisioningProfile = action.payload },
-    SetIosPassword: (state, action) => { state.iosPassword = action.payload },
+    SetFullName: (state, action) => { state.Name = action.payload },
+    SetOrgnizationName: (state, action) => { state.Organization = action.payload },
+    SetKeyAlias: (state, action) => { state.keyAlias= action.payload },
+    SetKeystorePass: (state, action) => { state.keyPassword = action.payload },
+    SetSigningCertificate: (state, action) => { state.ios_certificate = action.payload },
+    SetProvisioningProfile: (state, action) => { state.ios_provisioning_profile = action.payload },
+    SetIosPassword: (state, action) => { state.ios_certificate_password = action.payload},
 
 
   },

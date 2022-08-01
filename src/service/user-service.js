@@ -4,10 +4,24 @@ const API_URL = "https://netive-backend.herokuapp.com";
 
 
 
-  const createApp = async (appData) => {
+  const createApp = async (form_data) => {
    
   
-    return axios.post(API_URL+'/api-info/register/app/', appData, { headers: authHeader() })
+    return axios.post(
+      "https://netive-backend.herokuapp.com/api-info/register/app/", //https://netive-backend.herokuapp.com/api-info/register/app/
+      form_data,
+      { headers: authHeader() }
+    )
+    .then((res) => {
+      console.log(res);
+      
+    })
+    .catch((err) => {
+      console.log("Error! Creating App!");
+      
+ 
+      console.log(err);
+    });
     
   }
 
