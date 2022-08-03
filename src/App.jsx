@@ -37,11 +37,6 @@ function App() {
 
     return (
       <>
-      {/* <OsForm/> */}
-      {/* <FormOverview/> */}
-      {/* <FormStyle/> */}
-      {/* <AdditionalFeatures/> */}
-      {/* <Test/> */}
             <AppTable/>
       </>
     )
