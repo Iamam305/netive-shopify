@@ -2,63 +2,40 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 const initialState = {
 
-  // form step 
-  formStep: 0,
+ 
   // form data preset 
-  keystoreSetting : 'new',
-  admobEnable : false,
-  pushNotifications : false,
-
+  androidChoose : true,
+  iosChoose : false,
   
-platform : 'android',
+  
+  appName :"",
+  url :"",
+  appIcon:'',
+  package_name :'',
 
 
-appName :"app6",
-url :"https://lol.mummy",
-appIcon:[],
-
-package_name :'aaaa.app',
-primaryColor :"#fff",
-primaryColorDark :"fff",
-colorAccent: "#fff",
-
-
-splashScreenType : 1,
-
-
-keystoreSetting : 'new',
-
-keystoreName : "new",
-Name :"new",
-OrganizationUnit :"new",
-Organization :"new",
-City :"new",
-State :"new",
-CountryCode :"new",
-keystorePassword :"new",
-keyAlias :"new",
-keyPassword :"new",
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-bottom_bar_items :[],
-bottom_bar_items_url :[],
-bottom_bar_items :[],
-
-
-
-
+  primaryColor :"#ffd622",
+  primaryColorDark :"#ffd622",
+  colorAccent: "#222222",
+  splashScreenType : "fade",
+  
+  
+  keystoreSetting : 'new',
+  
+  keystoreName : "keystore",
+  Name :"firstname lastname",
+  OrganizationUnit :"IT",
+  Organization :"organization",
+  City :"XX",
+  State :"XX",
+  CountryCode :"XX",
+  keystorePassword :"keystorepassword",
+  keyAlias :"alias",
+  keyPassword :"keystorepassword",
+  admob: false,
+  pushNotication: false
+  
+  
 
 }
 
@@ -72,10 +49,7 @@ const formSlice = createSlice({
   reducers: {
     // jaruri nahi hi ki reducers ka nam set se hi suru ho mujhe kuch samjh nahi aya isiliye set kar diya 
 
-    // formstep 
-
-    incrementFormStep: (state, action) => { state.formStep += 1 },
-    decrementFormStep: (state, action) => { state.formStep -= 1 },
+  
 
     // basic infor reducer 
     SetAppName: (state, action) => { state.appName = action.payload },
@@ -90,10 +64,18 @@ const formSlice = createSlice({
     SetColor: (state, action) => { state.colorAccent  = action.payload },
     SetSplashScreen: (state, action) => { state.splashScreenType  = action.payload },
 
+    // additional features reducers 
+
+    SetPushNotification : (state, action) =>{state.pushNotication = action.payload},
+    SetGoogleServiceFileJson : (state, action) =>{state.GoogleServiceFileJson = action.payload},
+    SetGoogleServiceFilePlist  : (state, action) =>{state.GoogleServiceFilePlist  = action.payload},
+
+
+
     // os reducers 
 
-    SetAndroidOs: (state, action) => { state.AndroidOs = action.payload },
-    SetIOS: (state, action) => { state.IOS = action.payload },
+    SetAndroidOs: (state, action) => { state.androidChoose = action.payload },
+    SetIOS: (state, action) => { state.iosChoose = action.payload },
     SetFullName: (state, action) => { state.Name = action.payload },
     SetOrgnizationName: (state, action) => { state.Organization = action.payload },
     SetKeyAlias: (state, action) => { state.keyAlias= action.payload },
@@ -108,6 +90,6 @@ const formSlice = createSlice({
 
 });
 
-export const { incrementFormStep, decrementFormStep, SetAppName, SetUrl, SetBundelId, SetAppIcon, SetPrimaryColor, SetPrimaryColorDark, SetColor, SetSplashScreen, SetAndroidOs, SetIOS, SetFullName, SetOrgnizationName, SetKeyAlias, SetKeystorePass, SetSigningCertificate, SetProvisioningProfile, SetIosPassword } = formSlice.actions
+export const {  SetAppName, SetUrl, SetBundelId, SetAppIcon, SetPrimaryColor, SetPrimaryColorDark, SetColor, SetSplashScreen, SetAndroidOs, SetIOS, SetFullName, SetOrgnizationName, SetKeyAlias, SetKeystorePass, SetSigningCertificate, SetProvisioningProfile, SetIosPassword, SetPushNotification,SetGoogleServiceFileJson, SetGoogleServiceFilePlist } = formSlice.actions
 
 export default formSlice.reducer

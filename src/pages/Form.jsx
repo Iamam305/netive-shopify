@@ -11,9 +11,10 @@ import Sidebar from "../components/sidebar";
 
 export default function Form() {
 
-  const { formStep } = useSelector(state => state.form || {})
+  const { formStep } = useSelector(state => state.formStep || {})
+  const form_data = useSelector(state => state.form)
 
-  console.log(formStep)
+  console.log(form_data)
 
 
 

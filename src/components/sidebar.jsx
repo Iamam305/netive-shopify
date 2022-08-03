@@ -1,17 +1,21 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import { MdOutlineDashboard,MdAddCircleOutline, MdOutlineManageAccounts } from "react-icons/md";
 import { NavLink } from 'react-router-dom'
 import logo from '../logo.png'
-const Sidebar = () => {
+import userService from '../service/user-service'
+
+const Sidebar = ({userInfo}) => {
+
+    
     return (
         <>
 
             <div className="flex flex-col w-72 min-h-[calc(100vh_-_2rem)] px-4 py-8 bg-gray-800 border-r rounded-lg shadow-lg  border-gray-600 fixed">
                <img src={logo} alt="" className=''/>
                 <div className="flex flex-col items-center mt-6 -mx-2">
-                    <img className="object-cover w-24 h-24 mx-2 rounded-full" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="avatar" />
-                    <h4 className="mx-2 mt-2 font-medium  text-gray-200 hover:underline">John Doe</h4>
-                    <p className="mx-2 mt-1 text-sm font-medium  text-yellow-400 hover:underline">john@example.com</p>
+                    <img className="object-cover w-24 h-24 mx-2 rounded-full" src={userInfo.avatar} alt="avatar" />
+                    <h4 className="mx-2 mt-2 font-medium  text-gray-200 hover:underline">{userInfo.username}</h4>
+                    <p className="mx-2 mt-1 text-sm font-medium  text-yellow-400 hover:underline">{userInfo.email}</p>
                 </div>
 
                 <hr className="my-6  border-gray-600" />

@@ -12,6 +12,8 @@ import { BrowserRouter, Routes, Route, } from "react-router-dom";
 import Test from './components/test'
 import OsForm from './components/Form/OsForm'
 import FormOverview from './components/Form/FormOverview'
+import FormStyle from './components/Form/FormStyle'
+import AdditionalFeatures from './components/Form/AdditionalFeatures'
 
 
 
@@ -36,9 +38,11 @@ function App() {
     return (
       <>
       {/* <OsForm/> */}
-      <FormOverview/>
+      {/* <FormOverview/> */}
+      {/* <FormStyle/> */}
+      {/* <AdditionalFeatures/> */}
       {/* <Test/> */}
-            {/* <AppTable/> */}
+            <AppTable/>
       </>
     )
 }

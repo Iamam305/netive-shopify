@@ -21,9 +21,9 @@ const AppTable = () => {
   }
 
   return (
-    <div className='md:w-full p-4 font-bold text-gray-800
+    <div className='md:w-full  font-bold text-gray-50
     '>
-      <div className="w-full  mx-auto  overflow-auto bg-white shadow-2xl shadow-black  rounded-md">
+      <div className="w-full  mx-auto  overflow-auto bg-gray-800 shadow-2xl shadow-black  rounded-md">
         <table className="w-full  rounded-md border-collapse border-spacing-0 table-fixed text-center">
 
           <thead className='rounded-md bg-yellow-500 overflow-auto '>
@@ -57,21 +57,21 @@ const AppTable = () => {
           </thead>
           <tbody>
             {apps?.map((app, index) => (
-              <tr className="border-gray-300" key={app.created}>
+              <tr className="border-gray-900" key={app.created}>
 
-                <td className="px-4 py-8 border-t border-b border-gray-300 text-sm">
+                <td className="px-4 py-8 border-t border-b border-gray-900 text-sm">
                   {index + 1}
                 </td>
 
 
-                <td className="px-4 py-8 border-t border-b border-gray-300 text-sm">
+                <td className="px-4 py-8 border-t border-b border-gray-900 text-sm">
                   <img src={app.icon} className="h-16 w-16 rounded-full border bg-yellow-50 inline" />
                 </td>
 
-                <td className="px-4 py-8 border-t border-b border-gray-300 text-sm">
+                <td className="px-4 py-8 border-t border-b border-gray-900 text-sm">
                   {app.appName}
                 </td>
-                <td className="px-4 py-8 border-t border-b border-gray-300 text-sm">
+                <td className="px-4 py-8 border-t border-b border-gray-900 text-sm">
                   {app.status === 'ready' ? (
 
 
@@ -97,7 +97,7 @@ const AppTable = () => {
 
                   ) : app.status}
                 </td>
-                <td className="px-4 py-8 border-t text-center border-b border-gray-300 text-sm">
+                <td className="px-4 py-8 border-t text-center border-b border-gray-900 text-sm">
                   <span className='flex justify-center items-center text-3xl '>
 
                   {app.platform === "android" ? (
