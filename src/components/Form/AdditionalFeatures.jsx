@@ -5,9 +5,21 @@ import * as yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import {  incrementFormStep,  decrementFormStep,} from "../../store/formStepSlice";
 import { SetPushNotification, SetGoogleServiceFileJson, SetGoogleServiceFilePlist } from "../../store/formSlice";
-import { MdOutlineAttachFile } from "react-icons/md";
 
-const schema = yup.object().shape({});
+
+const schema = yup.object().shape({
+  pushNotifications:yup.boolean(),
+  plist: yup.mixed().when("pushNotifications", {
+    is: value => !!value,
+    then: yup.mixed().required("please upload your GoogleService.Plist")
+     
+  }),
+  GoogleServiceFileJson: yup.mixed().when("$pushNotifications", {
+    is: value => !!value,
+    then: yup.mixed().required("please upload your GoogleService.Json")
+     
+  }),
+});
 
 const AdditionalFeatures = () => {
   const [pushNotifications, setPushNotifications] = useState(false);
@@ -25,7 +37,7 @@ const AdditionalFeatures = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {},
@@ -40,7 +52,7 @@ const AdditionalFeatures = () => {
   };
   return (
     <>
-      <div className="flex flex-col w-full md:flex-row-reverse bg-gray-800  items-center justify-center mx-auto my-auto  rounded-2xl shadow-2xl md:p-12 ">
+      <div className="flex flex-col w-full my-4 md:flex-row-reverse  items-center justify-center mx-auto  rounded-2xl shadow-2xl md:p-12 bg-gray-800 ">
         <img
           src={"https://i.ibb.co/2WX6F4z/Creating-Mobile-App.png"}
           alt=""
@@ -84,14 +96,15 @@ const AdditionalFeatures = () => {
 
               <input
                 type="file"
-                accept=""
+                accept=".plist"
+                required
                 id="Plist"
                 className="file:bg-yellow-500 file:border-0 file:mr-2 flex flex-col file:rounded-md file:py-2 file:px-4 file:font-bold file:text-white text-white  p-1 rounded-md border "
                 name="GoogleService.Plist"
                 {...register("plist",{ required: true })}
                 
               />
-              <p className="text-xs text-red-600">{errors.plist?.message && `This field is required`}</p>
+              <p className="text-xs text-red-600">{errors.plist?.message && `please upload your GoogleService Plist file`}</p>
             </span>
 
 
@@ -105,14 +118,15 @@ const AdditionalFeatures = () => {
 
               <input
                 type="file"
-                accept=""
+                accept=".json"
+                required
                 id="gsJson"
                 className="file:bg-yellow-500 file:border-0 file:mr-2 file:rounded-md file:py-2 file:px-4 file:font-bold file:text-white text-white  p-1 rounded-md border"
                 name="GoogleService.json"
                 {...register("GoogleServiceFileJson",{ required: true })}
                 
               />
-              <p className="text-xs text-red-600">{errors.GoogleServiceFileJson?.message && `This field is required`}</p>
+              <p role="alert" className="text-xs text-red-600">{errors.GoogleServiceFileJson?.message && `please upload your GoogleService json file`}</p>
             </span>
             </>
 

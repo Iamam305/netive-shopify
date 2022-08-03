@@ -104,7 +104,7 @@ const OsForm = () => {
   };
   return (
     <>
-      <div className="flex flex-col w-full md:flex-row-reverse  items-center justify-center mx-auto my-auto  rounded-2xl shadow-2xl md:p-12 ">
+      <div className="flex flex-col w-full my-4 md:flex-row-reverse  items-center justify-center mx-auto  rounded-2xl shadow-2xl md:p-12 bg-gray-800">
         <img
           src={"https://i.ibb.co/2WX6F4z/Creating-Mobile-App.png"}
           alt=""
@@ -120,7 +120,7 @@ const OsForm = () => {
           </h2>
 
           <span className="my-3 mb-6 flex flex-col">
-            <h2 className="text-gray-600 mb-4 font-bold">
+            <h2 className="text-gray-50 mb-4 font-bold">
               Select Operating System
             </h2>
             <div>
@@ -167,12 +167,12 @@ const OsForm = () => {
 
           {android ? (
             <>
-              <h2 className="text-gray-600 mb-4 font-bold text-lg">ANDROID </h2>
+              <h2 className="text-gray-50 mb-4 font-bold text-lg">ANDROID </h2>
 
               <span className="flex flex-col my-4">
                 <label
                   htmlFor="fullName"
-                  className="text-gray-600 mb-2 font-bold"
+                  className="text-gray-50 mb-2 font-bold"
                 >
                   Full Name
                 </label>
@@ -192,7 +192,7 @@ const OsForm = () => {
               <span className="flex flex-col my-4">
                 <label
                   htmlFor="fullName"
-                  className="text-gray-600 mb-2 font-bold"
+                  className="text-gray-50 mb-2 font-bold"
                 >
                   Your Organization
                 </label>
@@ -212,7 +212,7 @@ const OsForm = () => {
               <span className="flex flex-col my-4">
                 <label
                   htmlFor="keyAlias"
-                  className="text-gray-600 mb-2 font-bold"
+                  className="text-gray-50 mb-2 font-bold"
                 >
                   Key Alias
                 </label>
@@ -232,7 +232,7 @@ const OsForm = () => {
               <span className="flex flex-col my-4">
                 <label
                   htmlFor="keystorePass"
-                  className="text-gray-600 mb-2 font-bold"
+                  className="text-gray-50 mb-2 font-bold"
                 >
                   Create Keystore Password
                 </label>
@@ -255,12 +255,12 @@ const OsForm = () => {
 
           {ios ? (
             <>
-              <h2 className="text-gray-600 mb-4 font-bold text-lg">IOS </h2>
+              <h2 className="text-gray-50 mb-4 font-bold text-lg">IOS </h2>
 
               <span className="flex flex-col my-4">
                 <label
                   htmlFor="signingCertificate"
-                  className="text-gray-600 mb-2 font-bold"
+                  className="text-gray-50 mb-2 font-bold"
                 >
                   {" "}
                   Select Signing Certificate
@@ -272,7 +272,7 @@ const OsForm = () => {
                   id="signingCertificate"
                   name="signingCertificate"
                   {...register("signingCertificate")}
-                  className="p-3 border-2 rounded-lg"
+                  className="file:bg-yellow-500 file:border-0 file:mr-2 file:rounded-md file:py-2 file:px-4 file:font-bold file:text-white text-white  p-1 rounded-md border"
                 />
                 <p className="text-xs text-red-600">
                   {errors.signingCertificate?.message}
@@ -281,7 +281,7 @@ const OsForm = () => {
               <span className="flex flex-col my-4">
                 <label
                   htmlFor="provisioningProfile"
-                  className="text-gray-600 mb-2 font-bold"
+                  className="text-gray-50 mb-2 font-bold"
                 >
                   {" "}
                   Select Provisioning Profile
@@ -293,7 +293,7 @@ const OsForm = () => {
                   id="provisioningProfile"
                   name="provisioningProfile"
                   {...register("provisioningProfile")}
-                  className="p-3 border-2 rounded-lg"
+                  className="file:bg-yellow-500 file:border-0 file:mr-2 file:rounded-md file:py-2 file:px-4 file:font-bold file:text-white text-white  p-1 rounded-md border"
                 />
                 <p className="text-xs text-red-600">
                   {errors.provisioningProfile?.message}
@@ -303,7 +303,7 @@ const OsForm = () => {
               <span className="flex flex-col my-4">
                 <label
                   htmlFor="iosPassword"
-                  className="text-gray-600 mb-2 font-bold"
+                  className="text-gray-50 mb-2 font-bold"
                 >
                   Password
                 </label>
@@ -328,6 +328,7 @@ const OsForm = () => {
             <button
               className="px-12 py-3 bg-black text-white rounded-md"
               onClick={() => dispatch(decrementFormStep())}
+              type="button"
             >
               BACK
             </button>

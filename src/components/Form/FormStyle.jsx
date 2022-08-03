@@ -5,14 +5,15 @@ import * as yup from "yup";
 import { BlockPicker } from "react-color";
 import { useDispatch, useSelector } from "react-redux";
 import {
-
   SetPrimaryColor,
   SetPrimaryColorDark,
   SetColor,
   SetSplashScreen,
 } from "../../store/formSlice";
-import { incrementFormStep, decrementFormStep } from "../../store/formStepSlice";
-
+import {
+  incrementFormStep,
+  decrementFormStep,
+} from "../../store/formStepSlice";
 
 //
 
@@ -84,7 +85,7 @@ const FormStyle = () => {
 
   return (
     <>
-      <div className="flex flex-col w-full md:flex-row-reverse  items-center justify-center mx-auto my-auto  rounded-2xl shadow-2xl md:p-12 ">
+      <div className="flex flex-col w-full my-4 md:flex-row-reverse  items-center justify-center mx-auto  rounded-2xl shadow-2xl md:p-12 bg-gray-800">
         <img
           src={"https://i.ibb.co/2WX6F4z/Creating-Mobile-App.png"}
           alt=""
@@ -100,7 +101,7 @@ const FormStyle = () => {
           <span className="flex flex-col my-3">
             <label
               htmlFor="primaryColor"
-              className="text-gray-600 mb-2 font-bold"
+              className="text-gray-50 mb-2 font-bold"
             >
               Primary Color
             </label>
@@ -121,8 +122,11 @@ const FormStyle = () => {
                 className="mt-2"
                 onClickOutside={() => setShowPrimaryPicker(false)}
               />
-            ) : ("")}
+            ) : (
+              ""
+            )}
             <input
+              required
               type={"hidden"}
               onChange={(e) => (e.target.value = primaryColor)}
               name="primaryColor"
@@ -136,7 +140,7 @@ const FormStyle = () => {
           <span className="flex flex-col my-3">
             <label
               htmlFor="primaryColorDark"
-              className="text-gray-600 mb-2 font-bold"
+              className="text-gray-50 mb-2 font-bold"
             >
               Primary Color Dark
             </label>
@@ -165,6 +169,7 @@ const FormStyle = () => {
               ""
             )}
             <input
+              required
               type={"hidden"}
               onChange={(e) => (e.target.value = primaryColorDark)}
               name="primaryColorDark"
@@ -178,7 +183,7 @@ const FormStyle = () => {
           <span className="flex flex-col my-3">
             <label
               htmlFor="primaryColorDark"
-              className="text-gray-600 mb-2 font-bold"
+              className="text-gray-50 mb-2 font-bold"
             >
               Accent Color
             </label>
@@ -203,6 +208,7 @@ const FormStyle = () => {
               ""
             )}
             <input
+              required
               type={"hidden"}
               onChange={(e) => (e.target.value = color)}
               name="color"
@@ -212,15 +218,16 @@ const FormStyle = () => {
           </span>
 
           <div>
-            <h2 className="text-gray-600 mt-6 mb-2 font-bold">Splash Screen</h2>
+            <h2 className="text-gray-50 mt-6 mb-2 font-bold">Splash Screen</h2>
 
             <div className="flex flex-col">
               <label
                 htmlFor="still"
-                className="text-xl font-extrabold text-gray-600 flex items-center my-2 
+                className="text-xl font-extrabold text-gray-50 flex items-center my-2 
                             hover:bg-gray-900 p-2 rounded-xl cursor-pointer"
               >
                 <input
+                  required
                   {...register("splashScreen")}
                   type="radio"
                   name="splashScreen"
@@ -234,10 +241,11 @@ const FormStyle = () => {
 
               <label
                 htmlFor="fade"
-                className="text-xl font-extrabold text-gray-600 flex items-center my-2 
+                className="text-xl font-extrabold text-gray-50 flex items-center my-2 
                             hover:bg-gray-900 p-2 rounded-xl cursor-pointer"
               >
                 <input
+                  required
                   {...register("splashScreen")}
                   type="radio"
                   name="splashScreen"
@@ -250,10 +258,11 @@ const FormStyle = () => {
               </label>
               <label
                 htmlFor="zoom"
-                className="text-xl font-extrabold text-gray-600 flex items-center my-2 
+                className="text-xl font-extrabold text-gray-50 flex items-center my-2 
                             hover:bg-gray-900 p-2 rounded-xl cursor-pointer"
               >
                 <input
+                  required
                   {...register("splashScreen")}
                   type="radio"
                   name="splashScreen"

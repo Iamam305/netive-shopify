@@ -103,7 +103,7 @@ const BasicInfo = () => {
             <label htmlFor="appName" className="text-gray-50 mb-2 font-bold">
               App Name
             </label>
-            <input
+            <input required
               {...register("appName")}
               name="appName"
               placeholder={"MyApp"}
@@ -121,7 +121,7 @@ const BasicInfo = () => {
             >
               Website Link
             </label>
-            <input
+            <input required
               {...register("websiteLink")}
               placeholder={"https://example.com/"}
               id="websiteLink"
@@ -139,7 +139,7 @@ const BasicInfo = () => {
             >
               Package/Bundle ID
             </label>
-            <input
+            <input required
               {...register("packageName")}
               name="packageName"
               placeholder={"com.myapp.app"}
@@ -157,7 +157,7 @@ const BasicInfo = () => {
               {(form_data.appIcon && (
                 <div className="w-36 border-2 rounded-lg p-2 mt-4">
                   <img
-                    // src={URL.createObjectURL(form_data.appIcon)}
+                    src={URL.createObjectURL(form_data.appIcon)}
                     alt="Thumb"
                   />
                 </div>
@@ -167,7 +167,7 @@ const BasicInfo = () => {
                 </div>
               )}
             </label>
-            <input
+            <input required
               type="file"
               accept="image/png"
               {...register("appIcon")}
