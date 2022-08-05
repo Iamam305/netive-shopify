@@ -1,11 +1,22 @@
 import React,{useEffect, useState} from 'react'
-import { MdOutlineDashboard,MdAddCircleOutline, MdOutlineManageAccounts } from "react-icons/md";
+import { MdOutlineDashboard,MdAddCircleOutline, MdOutlineManageAccounts, MdDocumentScanner,MdOutlineMoney } from "react-icons/md";
 import { NavLink } from 'react-router-dom'
 import logo from '../logo.png'
-import userService from '../service/user-service'
+import { useDispatch } from 'react-redux';
+import { useNavigate } from "react-router-dom";
+import { logout } from '../store/auth/authSlice'; 
+import { MdLogout } from "react-icons/md";
 
 const Sidebar = ({userInfo}) => {
 
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    const Logout =() =>{
+        dispatch(logout())
+        navigate('/signin')
+
+    }
     
     return (
         <>
@@ -33,10 +44,25 @@ const Sidebar = ({userInfo}) => {
                                 <span className="flex items-center justify-start w-full  text-xl  font-bold ">
                                     <MdOutlineManageAccounts className="mx-3" />Account</span>
                             </ NavLink>
-                        </div>  <div className="flex items-center   text-gray-200 my-4" >
+                        </div>  
+                        <div className="flex items-center   text-gray-200 my-4" >
                             <NavLink to={'/create-app'} className="font-medium px-4 py-2 w-full rounded-md  hover:bg-gray-600 hover:text-gray-50" >
                                 <span className="flex items-center justify-start w-full  text-xl  font-bold ">
                                     <MdAddCircleOutline className="mx-3" />Create App</span>
+                            </ NavLink>
+                        </div>
+
+                        <div className="flex items-center   text-gray-200 my-4" >
+                            <NavLink to={'/billing'} className="font-medium px-4 py-2 w-full rounded-md  hover:bg-gray-600 hover:text-gray-50" >
+                                <span className="flex items-center justify-start w-full  text-xl  font-bold ">
+                                    <MdOutlineMoney className="mx-3" />Billing </span>
+                            </ NavLink>
+                        </div>
+
+                        <div className="flex items-center   text-gray-200 my-4" >
+                            <NavLink to={'/documentation'} className="font-medium px-4 py-2 w-full rounded-md  hover:bg-gray-600 hover:text-gray-50" >
+                                <span className="flex items-center justify-start w-full  text-xl  font-bold ">
+                                    <MdDocumentScanner className="mx-3" />Documentation</span>
                             </ NavLink>
                         </div>
 
@@ -45,7 +71,7 @@ const Sidebar = ({userInfo}) => {
 
                     </nav>
 
-
+                    <button className='font-bold text-red-600 flex items-center justify-center ' onClick={()=> Logout()} >LOG OUT <MdLogout className='ml-2 font-extrabold'/></button>
                 </div>
             </div>
 

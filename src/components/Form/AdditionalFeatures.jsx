@@ -2,53 +2,92 @@ import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { IconPicker } from "react-fa-icon-picker";
 import { useDispatch, useSelector } from "react-redux";
-import {  incrementFormStep,  decrementFormStep,} from "../../store/formStepSlice";
-import { SetPushNotification, SetGoogleServiceFileJson, SetGoogleServiceFilePlist } from "../../store/formSlice";
-
+import {
+  incrementFormStep,
+  decrementFormStep,
+} from "../../store/formStepSlice";
+import {
+  SetBottomBar,
+  SetBottomBarItem1,
+  SetBottomBarItem2,
+  SetBottomBarItem3,
+  SetPushNotification,
+  SetGoogleServiceFileJson,
+  SetGoogleServiceFilePlist,
+} from "../../store/formSlice";
 
 const schema = yup.object().shape({
-  pushNotifications:yup.boolean(),
+  pushNotifications: yup.boolean(),
   plist: yup.mixed().when("pushNotifications", {
-    is: value => !!value,
-    then: yup.mixed().required("please upload your GoogleService.Plist")
-     
+    is: (value) => !!value,
+    then: yup.mixed().required("please upload your GoogleService.Plist"),
   }),
   GoogleServiceFileJson: yup.mixed().when("$pushNotifications", {
-    is: value => !!value,
-    then: yup.mixed().required("please upload your GoogleService.Json")
-     
+    is: (value) => !!value,
+    then: yup.mixed().required("please upload your GoogleService.Json"),
   }),
 });
 
 const AdditionalFeatures = () => {
-  const [pushNotifications, setPushNotifications] = useState(false);
+  const [icon1, setIcon1] = useState("");
+  const [icon2, setIcon2] = useState("");
+  const [icon3, setIcon3] = useState("");
 
   const dispatch = useDispatch();
+  const form_data = useSelector((state) => state.form);
 
   const onSubmit = (data) => {
-    
     dispatch(incrementFormStep());
-    dispatch(SetPushNotification(data.pushNotifications))
-    dispatch(SetGoogleServiceFileJson(data.GoogleServiceFileJson))
-    dispatch(SetGoogleServiceFilePlist(data.plist))   
-  }
+    dispatch(SetPushNotification(data.pushNotifications));
+    dispatch(SetGoogleServiceFileJson(data.GoogleServiceFileJson));
+    dispatch(SetGoogleServiceFilePlist(data.plist));
+    dispatch(SetBottomBarItem1(data.page1))
+    dispatch(SetBottomBarItem2(data.page2))
+    dispatch(SetBottomBarItem3(data.page3))
+
+    console.log(data);
+  };
 
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
+    setValue,
   } = useForm({
     resolver: yupResolver(schema),
-    defaultValues: {},
+    defaultValues: {
+      pushNotifications: form_data.pushNotication,
+      bottomBar: form_data.bottomBar,
+      page1: {
+        url: "",
+        icon: "",
+      },
+      page2: {
+        url: "",
+        icon: "",
+      },
+      page3: {
+        url: "",
+        icon: "",
+      },
+    },
   });
 
-  const handleChange = (event, featuresHook) => {
+  const handleChange = (event, featuresReducer) => {
     if (event.target.checked) {
-      featuresHook(true);
+      dispatch(featuresReducer(true));
     } else {
-      featuresHook(false);
+      dispatch(featuresReducer(false));
     }
+  };
+
+  const handelIconChange = (changeIcon, iconState, fieldName) => {
+    
+    iconState(changeIcon)
+    // to update value of input field with selected color
+    setValue(fieldName, changeIcon);
   };
   return (
     <>
@@ -67,70 +106,156 @@ const AdditionalFeatures = () => {
             Additional Feature
           </h2>
 
-          <label
-            htmlFor="pushNotifications"
-            className={` py-2 p-6 rounded-lg  cursor-pointer text-white mb-8 inline-flex  ${
-              pushNotifications ? "bg-yellow-500 " : "bg-gray-900"
-            } `}
-          >
-            <input
-              type="checkbox"
-              name="pushNotifications"
-              id="pushNotifications"
-              {...register("pushNotifications")}
-              onChange={(e) => handleChange(e, setPushNotifications)}
-              className="w-0 h-0 p-0 border-0 focus:outline-0 relative -z-20 m"
-            />
-            Firebase Push Notification
-          </label>
+          <div className="flex justify-evenly">
+            <label
+              htmlFor="pushNotifications"
+              className={` px-4 py-2  rounded-lg  cursor-pointer text-white mb-8 inline-flex  ${
+                form_data.pushNotication ? "bg-yellow-500 " : "bg-gray-900"
+              } `}
+            >
+              <input
+                type="checkbox"
+                name="pushNotifications"
+                id="pushNotifications"
+                {...register("pushNotifications")}
+                onChange={(e) => handleChange(e, SetPushNotification)}
+                className="w-0 h-0 p-0 border-0 focus:outline-0 relative -z-20 m"
+              />
+              Firebase Push Notification
+            </label>
 
-          {pushNotifications ? (
+            <label
+              htmlFor="bottomBar"
+              className={` px-4 py-2 rounded-lg  cursor-pointer text-white mb-8 inline-flex  ${
+                form_data.bottomBar ? "bg-yellow-500 " : "bg-gray-900"
+              } `}
+            >
+              <input
+                type="checkbox"
+                name="bottomBar"
+                id="bottomBar"
+                {...register("bottomBar")}
+                onChange={(e) => handleChange(e, SetBottomBar)}
+                className="w-0 h-0 p-0 border-0 focus:outline-0 relative -z-20 m"
+              />
+              Bottom Navigation Bar
+            </label>
+          </div>
+
+          {form_data.pushNotication ? (
             <>
-            <span className="flex flex-col my-3 mb-6">
-              <label htmlFor="Plist" className="text-gray-50 mb-2 font-bold">
-                Attach GoogleService.Plist
-                {/* <span className=" border py-2 px-4 flex items-center w-auto">
+              <h2 className="text-yellow-500 block mb-4 font-bold text-xl">
+                Firebase Push Notification-
+              </h2>
+              <span className="flex flex-col my-3 mb-6">
+                <label htmlFor="Plist" className="text-gray-50 mb-2 font-bold">
+                  Attach GoogleService.Plist
+                  {/* <span className=" border py-2 px-4 flex items-center w-auto">
                 {"Attach File"}
               </span> */}
-              </label>
+                </label>
 
-              <input
-                type="file"
-                accept=".plist"
-                required
-                id="Plist"
-                className="file:bg-yellow-500 file:border-0 file:mr-2 flex flex-col file:rounded-md file:py-2 file:px-4 file:font-bold file:text-white text-white  p-1 rounded-md border "
-                name="GoogleService.Plist"
-                {...register("plist",{ required: true })}
-                
-              />
-              <p className="text-xs text-red-600">{errors.plist?.message && `please upload your GoogleService Plist file`}</p>
-            </span>
+                <input
+                  type="file"
+                  accept=".plist"
+                  required
+                  id="Plist"
+                  className="file:bg-yellow-500 file:border-0 file:mr-2 flex flex-col file:rounded-md file:py-2 file:px-4 file:font-bold file:text-white text-white  p-1 rounded-md border "
+                  name="GoogleService.Plist"
+                  {...register("plist", { required: true })}
+                />
+                <p className="text-xs text-red-600">
+                  {errors.plist?.message &&
+                    `please upload your GoogleService Plist file`}
+                </p>
+              </span>
 
-
-            <span className="flex flex-col my-3 mb-6">
-              <label htmlFor="gsJson" className="text-gray-50 mb-2 font-bold">
-                Attach GoogleService.JSON
-                {/* <span className=" border py-2 px-4 flex items-center w-auto">
+              <span className="flex flex-col my-3 mb-6">
+                <label htmlFor="gsJson" className="text-gray-50 mb-2 font-bold">
+                  Attach GoogleService.JSON
+                  {/* <span className=" border py-2 px-4 flex items-center w-auto">
                 {"Attach File"}
               </span> */}
-              </label>
+                </label>
 
-              <input
-                type="file"
-                accept=".json"
-                required
-                id="gsJson"
-                className="file:bg-yellow-500 file:border-0 file:mr-2 file:rounded-md file:py-2 file:px-4 file:font-bold file:text-white text-white  p-1 rounded-md border"
-                name="GoogleService.json"
-                {...register("GoogleServiceFileJson",{ required: true })}
-                
-              />
-              <p role="alert" className="text-xs text-red-600">{errors.GoogleServiceFileJson?.message && `please upload your GoogleService json file`}</p>
-            </span>
+                <input
+                  type="file"
+                  accept=".json"
+                  required
+                  id="gsJson"
+                  className="file:bg-yellow-500 file:border-0 file:mr-2 file:rounded-md file:py-2 file:px-4 file:font-bold file:text-white text-white  p-1 rounded-md border"
+                  name="GoogleService.json"
+                  {...register("GoogleServiceFileJson", { required: true })}
+                />
+                <p role="alert" className="text-xs text-red-600">
+                  {errors.GoogleServiceFileJson?.message &&
+                    `please upload your GoogleService json file`}
+                </p>
+              </span>
             </>
+          ) : (
+            ""
+          )}
 
-              
+          {form_data.bottomBar ? (
+            <div className="mb-8">
+              <h2 className="text-yellow-500 block mb-4 font-bold text-xl">
+                Bottom Navigation-
+              </h2>
+
+              <label
+                htmlFor="url1"
+                className="text-gray-50 block mb-2 font-bold"
+              >
+                URL and ICON of page 1
+              </label>
+              <span className="flex mb-4 w-full justify-between">
+                <input
+                  type="text"
+                  id="url1"
+                  className="p-3 border-2 rounded-lg w-4/5"
+                  placeholder="url of page"
+                  {...register("page1.url")}
+                />
+
+                <IconPicker value={icon1} onChange={(e) => handelIconChange(e, setIcon1, 'page1.icon')}/>
+                 <input type="hidden"   {...register("page1.icon")}/>
+              </span>
+
+              <label
+                htmlFor="url1"
+                className="text-gray-50 block mb-2 font-bold"
+              >
+                URL and ICON of page 1
+              </label>
+              <span className="flex mb-4 w-full justify-between">
+                <input
+                  type="text"
+                  id="url1"
+                  className="p-3 border-2 rounded-lg w-4/5"
+                  placeholder="url of page"
+                  {...register("page2.url")}
+                />
+                <IconPicker value={icon2} onChange={(e) => handelIconChange(e, setIcon2, 'page2.icon')}/>
+              </span>
+
+              <label
+                htmlFor="url1"
+                className="text-gray-50 block mb-2 font-bold"
+              >
+                URL and ICON of page 1
+              </label>
+              <span className="flex mb-4 w-full justify-between">
+                <input
+                  type="text"
+                  id="url1"
+                  className="p-3 border-2 rounded-lg w-4/5"
+                  placeholder="url of page"
+                  {...register("page3.url")}
+                />
+                <IconPicker value={icon3} onChange={(e) => handelIconChange(e, setIcon3, 'page3.icon')}/>
+              </span>
+            </div>
           ) : (
             ""
           )}

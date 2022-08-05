@@ -21,7 +21,7 @@ export default function Form() {
 
   return (
     <>
-      <div className="flex justify-between p-4 w-full">
+      <div className="flex justify-between w-full">
 
      
 

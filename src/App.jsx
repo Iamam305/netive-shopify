@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Form from './pages/Form'
 import Sidebar from './components/sidebar'
@@ -17,10 +17,13 @@ import AdditionalFeatures from './components/Form/AdditionalFeatures'
 
 
 
+
+
 function App() {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
 
  
 
@@ -37,7 +40,9 @@ function App() {
 
     return (
       <>
-            <AppTable/>
+           
+            {/* <AppTable/> */}
+            <AdditionalFeatures/>
       </>
     )
 }
