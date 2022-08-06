@@ -85,7 +85,7 @@ const FormStyle = () => {
 
   return (
     <>
-      <div className="flex flex-col w-full my-4 md:flex-row-reverse  items-center justify-center mx-auto  rounded-2xl shadow-2xl md:p-12 bg-gray-800">
+      <div className="flex flex-col w-full my-4 md:flex-row-reverse  items-center justify-center mx-auto   md:p-12 ">
         <img
           src={"https://i.ibb.co/2WX6F4z/Creating-Mobile-App.png"}
           alt=""
@@ -101,7 +101,7 @@ const FormStyle = () => {
           <span className="flex flex-col my-3">
             <label
               htmlFor="primaryColor"
-              className="text-gray-50 mb-2 font-bold"
+              className="text-gray-800 mb-2 font-bold"
             >
               Primary Color
             </label>
@@ -140,7 +140,7 @@ const FormStyle = () => {
           <span className="flex flex-col my-3">
             <label
               htmlFor="primaryColorDark"
-              className="text-gray-50 mb-2 font-bold"
+              className="text-gray-800 mb-2 font-bold"
             >
               Primary Color Dark
             </label>
@@ -183,7 +183,7 @@ const FormStyle = () => {
           <span className="flex flex-col my-3">
             <label
               htmlFor="primaryColorDark"
-              className="text-gray-50 mb-2 font-bold"
+              className="text-gray-800 mb-2 font-bold"
             >
               Accent Color
             </label>
@@ -218,13 +218,13 @@ const FormStyle = () => {
           </span>
 
           <div>
-            <h2 className="text-gray-50 mt-6 mb-2 font-bold">Splash Screen</h2>
+            <h2 className="text-gray-800 mt-6 mb-2 font-bold">Splash Screen</h2>
 
             <div className="flex flex-col">
               <label
                 htmlFor="still"
-                className="text-xl font-extrabold text-gray-50 flex items-center my-2 
-                            hover:bg-gray-900 p-2 rounded-xl cursor-pointer"
+                className="text-xl font-extrabold text-gray-800 flex items-center my-2 
+                            hover:bg-gray-100 p-2 rounded-xl cursor-pointer"
               >
                 <input
                   required
@@ -241,8 +241,8 @@ const FormStyle = () => {
 
               <label
                 htmlFor="fade"
-                className="text-xl font-extrabold text-gray-50 flex items-center my-2 
-                            hover:bg-gray-900 p-2 rounded-xl cursor-pointer"
+                className="text-xl font-extrabold text-gray-800 flex items-center my-2 
+                            hover:bg-gray-100 p-2 rounded-xl cursor-pointer"
               >
                 <input
                   required
@@ -258,8 +258,8 @@ const FormStyle = () => {
               </label>
               <label
                 htmlFor="zoom"
-                className="text-xl font-extrabold text-gray-50 flex items-center my-2 
-                            hover:bg-gray-900 p-2 rounded-xl cursor-pointer"
+                className="text-xl font-extrabold text-gray-800 flex items-center my-2 
+                            hover:bg-gray-100 p-2 rounded-xl cursor-pointer"
               >
                 <input
                   required

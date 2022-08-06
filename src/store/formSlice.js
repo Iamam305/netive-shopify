@@ -2,35 +2,36 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
   // form data preset
-  androidChoose: true,
-  iosChoose: false,
-
-  appName: "",
-  url: "",
-  appIcon: "",
-  package_name: "",
-
-  primaryColor: "#ffd622",
-  primaryColorDark: "#ffd622",
-  colorAccent: "#222222",
-  splashScreenType: "fade",
-
-  keystoreSetting: "new",
-
-  keystoreName: "keystore",
-  Name: "firstname lastname",
-  OrganizationUnit: "IT",
-  Organization: "organization",
-  City: "XX",
-  State: "XX",
-  CountryCode: "XX",
-  keystorePassword: "keystorepassword",
-  keyAlias: "alias",
-  keyPassword: "keystorepassword",
-  admob: false,
-  pushNotication: false,
-  bottomBar: false,
-  bottom_bar_items: [{}, {}, {}],
+	androidChoose: true,
+	iosChoose: false,
+	appName: "default",
+	url: "https://default.com",
+	image: "",
+	package_name: "app.default.com",
+	primaryColor: "#ffd622",
+	primaryColorDark: "#ffd622",
+	colorAccent: "#222222",
+	splashScreenType: "fade",
+	keystore_setting: "new",
+	keystoreName: "keystore",
+	Name: "firstname lastname",
+	OrganizationUnit: "IT",
+	Organization: "organization",
+	City: "XX",
+	State: "XX",
+	CountryCode: "XX",
+	keystorePassword: "keystorepassword",
+	keyAlias: "keyAlias",
+	keystorePassword2: "keystorepassword",
+	keyPassword: "keystorepassword",
+	admob: false,
+	pushNoti: false,
+	ios_certificate_password: "",
+	keystore: "",
+	keystore_setting: "",
+	GSFile: "",
+	bottomBar: false,
+	bottom_bar_items: [{}, {}, {}],
 };
 
 const formSlice = createSlice({
@@ -51,7 +52,7 @@ const formSlice = createSlice({
       state.package_name = action.payload;
     },
     SetAppIcon: (state, action) => {
-      state.appIcon = action.payload;
+      state.image = action.payload;
     },
 
     // styling reducers
@@ -72,7 +73,7 @@ const formSlice = createSlice({
     // additional features reducers
 
     SetPushNotification: (state, action) => {
-      state.pushNotication = action.payload;
+      state.pushNoti = action.payload;
     },
     SetGoogleServiceFileJson: (state, action) => {
       state.GoogleServiceFileJson = action.payload;

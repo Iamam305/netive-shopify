@@ -1,4 +1,6 @@
 nav .active{
-color:#222;
-background:rgb(250 204 21);
+    border-color: rgb(243 244 246);
+    background-color: rgba(75, 85, 99, 0.5);
+    
+    color: rgb(243 244 246 );
 }

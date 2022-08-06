@@ -12,15 +12,10 @@ const StatsHeader = ({stats}) => {
 
 
   return (
-    <div className="w-full pb-20 pt-5  bg-gray-800 rounded-md flex flex-col  items-start px-2">
-      <Link
-        to={"/create-app"}
-        className="bg-yellow-500 text-gray-50 font-bold px-6 py-3 my-5 mx-4 rounded flex items-center justify-between"
-      >
-        Create New App
-      </Link>
-      <div className="w-full  flex-col md:flex-row bg-gray-800 rounded-md flex items-center px-2">
-        <div className="w-full basis-full md:basis-1/4  bg-white rounded-md m-2 flex justify-between items-center p-4 font-bold">
+    <div className="w-full py-10   rounded-md flex flex-col mt-20 items-start px-2">
+    
+      <div className="w-full  flex-col md:flex-row  rounded-md flex items-center px-2">
+        <div className="w-full basis-full md:basis-1/4   bg-white shadow-md rounded-md m-2 flex justify-between items-center p-4 font-bold">
           <span className="text-gray-700 text-lg">
             <h2>Total Builds</h2>
             <p>{stats.build}</p>
@@ -30,7 +25,7 @@ const StatsHeader = ({stats}) => {
           </span>
         </div>
 
-        <div className="w-full basis-full md:basis-1/4  bg-white rounded-md m-2 flex justify-between items-center p-4 font-bold">
+        <div className="w-full basis-full md:basis-1/4   bg-white shadow-md rounded-md m-2 flex justify-between items-center p-4 font-bold">
           <span className="text-gray-700 text-lg">
             <h2>Ready</h2>
             <p>{stats.ready}</p>
@@ -40,7 +35,7 @@ const StatsHeader = ({stats}) => {
           </span>
         </div>
 
-        <div className="w-full basis-full md:basis-1/4  bg-white rounded-md m-2 flex justify-between items-center p-4 font-bold">
+        <div className="w-full basis-full md:basis-1/4   bg-white shadow-md rounded-md m-2 flex justify-between items-center p-4 font-bold">
           <span className="text-gray-700 text-lg">
             <h2>Pending</h2>
             <p>{stats.pending}</p>
@@ -50,7 +45,7 @@ const StatsHeader = ({stats}) => {
           </span>
         </div>
 
-        <div className="w-full basis-full md:basis-1/4  bg-white rounded-md m-2 flex justify-between items-center p-4 font-bold">
+        <div className="w-full basis-full md:basis-1/4   bg-white shadow-md rounded-md m-2 flex justify-between items-center p-4 font-bold">
           <span className="text-gray-700 text-lg">
             <h2>Failed</h2>
             <p>{stats.failed}</p>

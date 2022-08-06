@@ -84,7 +84,7 @@ const BasicInfo = () => {
   };
   return (
     <>
-      <div className="flex flex-col w-full my-4 md:flex-row-reverse  items-center justify-center mx-auto  rounded-2xl shadow-2xl md:p-12 bg-gray-800">
+      <div className="flex flex-col w-full my-4 md:flex-row-reverse  items-center justify-center mx-auto   md:p-12 ">
         <img
           src={"https://i.ibb.co/hL8zGgQ/Building-Product.png"}
           alt=""
@@ -100,7 +100,7 @@ const BasicInfo = () => {
           </h2>
 
           <span className="flex flex-col my-3">
-            <label htmlFor="appName" className="text-gray-50 mb-2 font-bold">
+            <label htmlFor="appName" className="text-gray-800 mb-2 font-bold">
               App Name
             </label>
             <input required
@@ -117,7 +117,7 @@ const BasicInfo = () => {
             <label
               htmlFor="websiteLink"
               name="websiteLink"
-              className="text-gray-50 mb-2 font-bold"
+              className="text-gray-800 mb-2 font-bold"
             >
               Website Link
             </label>
@@ -135,7 +135,7 @@ const BasicInfo = () => {
           <span className="flex flex-col my-3">
             <label
               htmlFor="packageName"
-              className="text-gray-50 mb-2 font-bold"
+              className="text-gray-800 mb-2 font-bold"
             >
               Package/Bundle ID
             </label>
@@ -152,7 +152,7 @@ const BasicInfo = () => {
           </span>
 
           <span className="flex flex-col my-3">
-            <label htmlFor="appIcon" className="text-gray-50 mb-2 font-bold">
+            <label htmlFor="appIcon" className="text-gray-800 mb-2 font-bold">
               App Icon
               {(form_data.appIcon && (
                 <div className="w-36 border-2 rounded-lg p-2 mt-4">
@@ -167,7 +167,7 @@ const BasicInfo = () => {
                 </div>
               )}
             </label>
-            <input required
+            <input 
               type="file"
               accept="image/png"
               {...register("appIcon")}
@@ -176,7 +176,7 @@ const BasicInfo = () => {
               className=" mt-4 ml-2 p-3 pl-0 h-1 w-1"
               onChange={imageChange}
             />
-            <div className="w-full h-8  relative -mt-7 bg-gray-800"></div>
+            <div className="w-full h-8  relative -mt-7 bg-white"></div>
             <p className="text-xs text-red-600">{errors.appIcon?.message}</p>
           </span>
 

@@ -41,9 +41,9 @@ function App() {
     return (
       <>
            
-            {/* <AppTable/> */}
+            <AppTable/>
             {/* <AdditionalFeatures/> */}
-            <FormOverview/>
+            {/* <FormOverview/> */}
       </>
     )
 }

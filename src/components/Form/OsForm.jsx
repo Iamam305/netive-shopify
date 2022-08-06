@@ -104,7 +104,7 @@ const OsForm = () => {
   };
   return (
     <>
-      <div className="flex flex-col w-full my-4 md:flex-row-reverse  items-center justify-center mx-auto  rounded-2xl shadow-2xl md:p-12 bg-gray-800">
+      <div className="flex flex-col w-full my-4 md:flex-row-reverse  items-center justify-center mx-auto md:p-12 ">
         <img
           src={"https://i.ibb.co/2WX6F4z/Creating-Mobile-App.png"}
           alt=""
@@ -120,14 +120,14 @@ const OsForm = () => {
           </h2>
 
           <span className="my-3 mb-6 flex flex-col">
-            <h2 className="text-gray-50 mb-4 font-bold">
+            <h2 className="text-gray-800 mb-4 font-bold">
               Select Operating System
             </h2>
             <div>
               <label
                 htmlFor="AndroidOs"
-                className={` py-2 p-6 rounded-lg  cursor-pointer ${
-                  android ? "bg-yellow-500 text-white" : "bg-gray-100"
+                className={` py-2 p-6 rounded-lg text-white cursor-pointer ${
+                  android ? "bg-yellow-500 " : "bg-gray-800"
                 } `}
               >
                 <input
@@ -143,8 +143,8 @@ const OsForm = () => {
               {"\u00A0"} {"\u00A0"}
               <label
                 htmlFor="IOS"
-                className={` py-2 px-6 rounded-lg cursor-pointer ${
-                  ios ? "bg-yellow-500 text-white" : "bg-gray-100"
+                className={` py-2 px-6 rounded-lg cursor-pointer text-white ${
+                  ios ? "bg-yellow-500 " : "bg-gray-800 "
                 } `}
               >
                 <input
@@ -167,12 +167,12 @@ const OsForm = () => {
 
           {android ? (
             <>
-              <h2 className="text-gray-50 mb-4 font-bold text-lg">ANDROID </h2>
+              <h2 className="text-gray-800 mb-4 font-bold text-lg">ANDROID </h2>
 
               <span className="flex flex-col my-4">
                 <label
                   htmlFor="fullName"
-                  className="text-gray-50 mb-2 font-bold"
+                  className="text-gray-800 mb-2 font-bold"
                 >
                   Full Name
                 </label>
@@ -192,7 +192,7 @@ const OsForm = () => {
               <span className="flex flex-col my-4">
                 <label
                   htmlFor="fullName"
-                  className="text-gray-50 mb-2 font-bold"
+                  className="text-gray-800 mb-2 font-bold"
                 >
                   Your Organization
                 </label>
@@ -212,7 +212,7 @@ const OsForm = () => {
               <span className="flex flex-col my-4">
                 <label
                   htmlFor="keyAlias"
-                  className="text-gray-50 mb-2 font-bold"
+                  className="text-gray-800 mb-2 font-bold"
                 >
                   Key Alias
                 </label>
@@ -232,7 +232,7 @@ const OsForm = () => {
               <span className="flex flex-col my-4">
                 <label
                   htmlFor="keystorePass"
-                  className="text-gray-50 mb-2 font-bold"
+                  className="text-gray-800 mb-2 font-bold"
                 >
                   Create Keystore Password
                 </label>
@@ -255,12 +255,12 @@ const OsForm = () => {
 
           {ios ? (
             <>
-              <h2 className="text-gray-50 mb-4 font-bold text-lg">IOS </h2>
+              <h2 className="text-gray-800 mb-4 font-bold text-lg">IOS </h2>
 
               <span className="flex flex-col my-4">
                 <label
                   htmlFor="signingCertificate"
-                  className="text-gray-50 mb-2 font-bold"
+                  className="text-gray-800 mb-2 font-bold"
                 >
                   {" "}
                   Select Signing Certificate
@@ -281,7 +281,7 @@ const OsForm = () => {
               <span className="flex flex-col my-4">
                 <label
                   htmlFor="provisioningProfile"
-                  className="text-gray-50 mb-2 font-bold"
+                  className="text-gray-800 mb-2 font-bold"
                 >
                   {" "}
                   Select Provisioning Profile
@@ -303,7 +303,7 @@ const OsForm = () => {
               <span className="flex flex-col my-4">
                 <label
                   htmlFor="iosPassword"
-                  className="text-gray-50 mb-2 font-bold"
+                  className="text-gray-800 mb-2 font-bold"
                 >
                   Password
                 </label>

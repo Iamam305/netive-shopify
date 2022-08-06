@@ -91,7 +91,7 @@ const AdditionalFeatures = () => {
   };
   return (
     <>
-      <div className="flex flex-col w-full my-4 md:flex-row-reverse  items-center justify-center mx-auto  rounded-2xl shadow-2xl md:p-12 bg-gray-800 ">
+      <div className="flex flex-col w-full my-4 md:flex-row-reverse  items-center justify-center mx-auto   md:p-12  ">
         <img
           src={"https://i.ibb.co/2WX6F4z/Creating-Mobile-App.png"}
           alt=""
@@ -102,11 +102,11 @@ const AdditionalFeatures = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="w-full md:w-2/5 backdrop-blur-sm  p-6 md:p-1"
         >
-          <h2 className="text-yellow-400 text-3xl font-bold mb-8">
+          <h2 className="text-yellow-500 text-3xl font-bold mb-8">
             Additional Feature
           </h2>
 
-          <div className="flex justify-evenly">
+          <div className="inline-flex flex-col justify-evenly">
             <label
               htmlFor="pushNotifications"
               className={` px-4 py-2  rounded-lg  cursor-pointer text-white mb-8 inline-flex  ${
@@ -148,7 +148,7 @@ const AdditionalFeatures = () => {
                 Firebase Push Notification-
               </h2>
               <span className="flex flex-col my-3 mb-6">
-                <label htmlFor="Plist" className="text-gray-50 mb-2 font-bold">
+                <label htmlFor="Plist" className="text-gray-800 mb-2 font-bold">
                   Attach GoogleService.Plist
                   {/* <span className=" border py-2 px-4 flex items-center w-auto">
                 {"Attach File"}
@@ -171,7 +171,7 @@ const AdditionalFeatures = () => {
               </span>
 
               <span className="flex flex-col my-3 mb-6">
-                <label htmlFor="gsJson" className="text-gray-50 mb-2 font-bold">
+                <label htmlFor="gsJson" className="text-gray-800 mb-2 font-bold">
                   Attach GoogleService.JSON
                   {/* <span className=" border py-2 px-4 flex items-center w-auto">
                 {"Attach File"}
@@ -205,7 +205,7 @@ const AdditionalFeatures = () => {
 
               <label
                 htmlFor="url1"
-                className="text-gray-50 block mb-2 font-bold"
+                className="text-gray-800 block mb-2 font-bold"
               >
                 URL and ICON of page 1
               </label>
@@ -224,7 +224,7 @@ const AdditionalFeatures = () => {
 
               <label
                 htmlFor="url1"
-                className="text-gray-50 block mb-2 font-bold"
+                className="text-gray-800 block mb-2 font-bold"
               >
                 URL and ICON of page 1
               </label>
@@ -241,7 +241,7 @@ const AdditionalFeatures = () => {
 
               <label
                 htmlFor="url1"
-                className="text-gray-50 block mb-2 font-bold"
+                className="text-gray-800 block mb-2 font-bold"
               >
                 URL and ICON of page 1
               </label>
