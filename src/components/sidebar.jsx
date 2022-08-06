@@ -59,12 +59,12 @@ const Sidebar = ({userInfo}) => {
                             </ NavLink>
                         </div>
 
-                        <div className="flex items-center   text-gray-200 my-4" >
+                        <button className="flex items-center w-full  text-gray-200 my-4" disabled >
                             <NavLink to={'/documentation'} className="font-medium px-4 py-2 w-full rounded-md  hover:bg-gray-600 hover:text-gray-50" >
                                 <span className="flex items-center justify-start w-full  text-xl  font-bold ">
                                     <MdDocumentScanner className="mx-3" />Documentation</span>
                             </ NavLink>
-                        </div>
+                        </button>
 
 
 
