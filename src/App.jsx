@@ -45,11 +45,11 @@ function App() {
     return (
       <>
            
-            {/* <AppTable/> */}
+            <AppTable/>
             {/* <AdditionalFeatures/> */}
             {/* <FormOverview/> */}
             {/* <OsForm/> */}
-            <Test/>
+            {/* <Test/> */}
       </>
     )
   }

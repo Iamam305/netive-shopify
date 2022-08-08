@@ -34,7 +34,7 @@ const schema = yup.object().shape({
   appIcon: yup
     .mixed()
     .required("please upload app icon")
-    .test("type", "We only support png", function (value) {
+    .test("type", "select valid image", function (value) {
       return (
         (value && value[0] && value[0].type === "image/png") ||
         (value && value.type === "image/png")
@@ -76,7 +76,10 @@ const BasicInfo = () => {
     dispatch(SetUrl(data.websiteLink));
     dispatch(SetBundelId(data.packageName));
     dispatch(SetAppIcon(data.appIcon[0]));
-    dispatch(incrementFormStep());
+    if(Form_step < 4){
+
+      dispatch(incrementFormStep());
+    }
     setValue("appName", form_data.appName);
 
     console.log(data);
@@ -182,10 +185,19 @@ const BasicInfo = () => {
           <button
             className="px-12 py-3 bg-black text-white rounded-md"
             type="submit"
+            
           >
             NEXT
           </button>
+          
+          <button
+              className="overview-btn hidden px-12 py-3 bg-black text-white rounded-md"
+              type="submit"
+            >
+              SAVE
+            </button>
         </form>
+       
       </div>
     </>
   );

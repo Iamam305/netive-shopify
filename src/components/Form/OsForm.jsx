@@ -65,6 +65,7 @@ const OsForm = () => {
   
   const dispatch = useDispatch();
   const Form_data = useSelector((state) => state.form);
+  const Form_step = useSelector((state) => state.formStep)
 
   // console.log(android)
 
@@ -82,7 +83,10 @@ const OsForm = () => {
     // dispatch(SetSigningCertificate(data.signingCertificate));
     // dispatch(SetProvisioningProfile(data.provisioningProfile));
     // dispatch(SetIosPassword(data.iosPassword));
-    dispatch(incrementFormStep());
+    if(Form_step < 4){
+
+      dispatch(incrementFormStep());
+    }
   }
 
   };
@@ -352,7 +356,15 @@ const OsForm = () => {
             >
               NEXT
             </button>
+
+          
           </span>
+            <button
+              className="overview-btn hidden px-12 py-3 bg-black text-white rounded-md"
+              type="submit"
+            >
+              SAVE
+            </button>
         </form>
       </div>
     </>

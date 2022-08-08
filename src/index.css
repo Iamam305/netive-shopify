@@ -34,3 +34,6 @@ code {
 .formOverview .appIcon img{
 display:block !important;
 }
+.formOverview .overview-btn{
+  display:flex !important;
+}

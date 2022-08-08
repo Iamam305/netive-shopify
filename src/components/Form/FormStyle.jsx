@@ -54,7 +54,10 @@ const FormStyle = () => {
     dispatch(SetPrimaryColorDark(data.primaryColorDark));
     dispatch(SetColor(data.color));
     dispatch(SetSplashScreen(data.splashScreen));
-    dispatch(incrementFormStep());
+    if(Form_step < 4){
+
+      dispatch(incrementFormStep());
+    }
   };
 
   console.log(form_data);
@@ -294,7 +297,14 @@ const FormStyle = () => {
             >
               NEXT
             </button>
+          
           </span>
+          <button
+              className="overview-btn hidden px-12 py-3 bg-black text-white rounded-md"
+              type="submit"
+            >
+              SAVE
+            </button>
         </form>
       </div>
     </>

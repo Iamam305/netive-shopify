@@ -42,11 +42,11 @@ const Layout = () => {
           <div className="flex flex-col justify-start items-center w-full md:ml-64 ">
             <Navbar userInfo={userInfo} hamburger={hamburger} setHamburger ={setHamburger}/>
             <StatsHeader stats={userInfo} />
-            <div className="w-full  p-6">
+            <div className="w-full p-2 md:p-6">
            
            
 
-              {userInfo === "" ? (
+              {!userInfo ? (
                 <p className="text-center flex text-2xl font-bold items-center justify-center">LOADING <AiOutlineLoading3Quarters className="ml-2 animate-spin"/></p>
               ) : userInfo.email_confirmed ? (
                 <Outlet />
