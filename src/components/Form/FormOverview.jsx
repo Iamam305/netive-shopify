@@ -9,25 +9,71 @@ import OsForm from "./OsForm";
 import AdditionalFeatures from "./AdditionalFeatures";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-
-
-
+import {
+  SetAppName,
+  SetUrl,
+  SetBundelId,
+  SetAppIcon,
+  SetPrimaryColor,
+  SetPrimaryColorDark,
+  SetColor,
+  SetSplashScreen,
+  SetAndroidOs,
+  SetIOS,
+  SetIOStoken,
+  SetFullName,
+  SetOrgnizationName,
+  SetKeyAlias,
+  SetKeystorePass,
+  SetSigningCertificate,
+  SetProvisioningProfile,
+  SetIosPassword,
+  SetPushNotification,
+  SetGoogleServiceFileJson,
+  SetGoogleServiceFilePlist,
+  SetBottomBar,
+  SetBottomBarItem1,
+  SetBottomBarItem2,
+  SetBottomBarItem3,
+} from "../../store/formSlice";
+import { SetFormStep } from "../../store/formStepSlice";
 
 const FormOverview = () => {
   const Form_Data = useSelector((state) => state.form);
   const dispatch = useDispatch();
-  const Navigate = useNavigate()
+  const Navigate = useNavigate();
+  const resetFormData = () =>{
+    dispatch(SetAppName(''))
+    dispatch(SetUrl(''))
+    dispatch(SetBundelId(''))
+    dispatch(SetAppIcon(''))
+    dispatch(SetPushNotification(false))
+    dispatch(SetGoogleServiceFileJson(''))
+    dispatch(SetGoogleServiceFilePlist(''))
+    dispatch(SetBottomBar(false))
+    dispatch(SetBottomBarItem1(''))
+    dispatch(SetBottomBarItem2(''))
+    dispatch(SetBottomBarItem3(''))
+    dispatch(SetFormStep(0))
 
+
+
+  }
   const createApp = () => {
-    userService.createApp(Form_Data)
-    .then(() =>{
-      toast.success("App Created Successfully")
-      Navigate('/')
-    }).catch(() =>{
-      toast.error("Something went wrong try again")
+    userService
+      .createApp(Form_Data)
+      .then(() => {
+        toast.success("App Created Successfully");
+  console.log(Form_Data);
 
-    })
-    ;
+        Navigate("/");
+      })
+      .then(() =>{
+        resetFormData()
+      })
+      .catch(() => {
+        toast.error("Something went wrong try again");
+      });
   };
 
   console.log(Form_Data);
@@ -38,11 +84,10 @@ const FormOverview = () => {
         REVIEW YOUR INFORMATION BEFORE SUBMITTING
       </h2>
       <div className="formOverview">
-
-      <BasicInfo />
-      <FormStyle />
-      <OsForm/>
-      <AdditionalFeatures/>
+        <BasicInfo />
+        <FormStyle />
+        <OsForm />
+        <AdditionalFeatures />
       </div>
       <div className="flex justify-center">
         <button

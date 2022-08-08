@@ -14,9 +14,10 @@ const formStepSlice = createSlice({
 
      incrementFormStep: (state, action) => { state.formStep += 1 },
      decrementFormStep: (state, action) => { state.formStep -= 1 },
+     SetFormStep: (state, action) => {state.formStep = action.payload}
   }
 });
 
-export const {incrementFormStep, decrementFormStep,} = formStepSlice.actions
+export const {incrementFormStep, decrementFormStep,SetFormStep} = formStepSlice.actions
 
 export default formStepSlice.reducer

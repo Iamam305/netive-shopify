@@ -46,6 +46,8 @@ const FormStyle = () => {
   const [showColorPicker, setShowColorPicker] = useState(false);
 
   const form_data = useSelector((state) => state.form);
+  const Form_step = useSelector((state) => state.formStep);
+
 
   const dispatch = useDispatch();
 
@@ -54,10 +56,10 @@ const FormStyle = () => {
     dispatch(SetPrimaryColorDark(data.primaryColorDark));
     dispatch(SetColor(data.color));
     dispatch(SetSplashScreen(data.splashScreen));
-    if(Form_step < 4){
-
-      dispatch(incrementFormStep());
+    if(Form_step.formStep < 4){
+      dispatch(incrementFormStep())
     }
+
   };
 
   console.log(form_data);

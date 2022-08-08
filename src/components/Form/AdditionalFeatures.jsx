@@ -40,11 +40,12 @@ const AdditionalFeatures = () => {
 console.log(IconPickerItem);
   const dispatch = useDispatch();
   const form_data = useSelector((state) => state.form);
+  const Form_step = useSelector((state) => state.formStep);
+
 
   const onSubmit = (data) => {
-    if(Form_step < 4){
-
-      dispatch(incrementFormStep());
+    if(Form_step.formStep < 4){
+      dispatch(incrementFormStep())
     }
     dispatch(SetPushNotification(data.pushNotifications));
     dispatch(SetGoogleServiceFileJson(data.GoogleServiceFileJson));

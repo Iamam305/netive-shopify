@@ -46,6 +46,8 @@ const BasicInfo = () => {
   const dispatch = useDispatch();
 
   const form_data = useSelector((state) => state.form);
+  const Form_step = useSelector((state) => state.formStep)
+
 
 
   const imageChange = (e) => {
@@ -71,16 +73,22 @@ const BasicInfo = () => {
     },
   });
 
-  const onSubmit = (data) => {
-    dispatch(SetAppName(data.appName));
-    dispatch(SetUrl(data.websiteLink));
-    dispatch(SetBundelId(data.packageName));
-    dispatch(SetAppIcon(data.appIcon[0]));
-    if(Form_step < 4){
+  const onSubmit = (data,) => {
+   
+    
 
-      dispatch(incrementFormStep());
-    }
-    setValue("appName", form_data.appName);
+      dispatch(SetAppName(data.appName));
+      dispatch(SetUrl(data.websiteLink));
+      dispatch(SetBundelId(data.packageName));
+      dispatch(SetAppIcon(data.appIcon[0]));
+      if(Form_step.formStep < 4){
+        dispatch(incrementFormStep())
+      }
+    
+     
+    // }
+   
+    // setValue("appName", form_data.appName);
 
     console.log(data);
   };

@@ -4,10 +4,10 @@ const initialState = {
   // form data preset
 	androidChoose: true,
 	iosChoose: false,
-	appName: "default",
-	url: "https://default.com",
+	appName: "",
+	url: "",
 	image: "",
-	package_name: "app.default.com",
+	package_name: "",
 	primaryColor: "#ffd622",
 	primaryColorDark: "#ffd622",
 	colorAccent: "#222222",

@@ -65,7 +65,7 @@ const OsForm = () => {
   
   const dispatch = useDispatch();
   const Form_data = useSelector((state) => state.form);
-  const Form_step = useSelector((state) => state.formStep)
+  const Form_step = useSelector((state) => state.formStep);
 
   // console.log(android)
 
@@ -83,10 +83,10 @@ const OsForm = () => {
     // dispatch(SetSigningCertificate(data.signingCertificate));
     // dispatch(SetProvisioningProfile(data.provisioningProfile));
     // dispatch(SetIosPassword(data.iosPassword));
-    if(Form_step < 4){
-
-      dispatch(incrementFormStep());
+    if(Form_step.formStep < 4){
+      dispatch(incrementFormStep())
     }
+
   }
 
   };
