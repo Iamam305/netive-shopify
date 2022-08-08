@@ -1,12 +1,15 @@
 import axios from "axios";
 const API_URL = "https://netive-backend.herokuapp.com/";
+
+
+
 const register = (username, email, password, password2) => {
   return axios.post(API_URL + "api-info/register/", {
     username,
     email,
     password,
     password2,
-  });
+  })
 };
 
 const login = (username, password) => {

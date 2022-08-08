@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { IconPicker } from "react-fa-icon-picker";
+import { IconPickerItem, IconPicker  } from 'react-fa-icon-picker'
 import { useDispatch, useSelector } from "react-redux";
 import {
   incrementFormStep,
@@ -17,6 +17,9 @@ import {
   SetGoogleServiceFileJson,
   SetGoogleServiceFilePlist,
 } from "../../store/formSlice";
+
+
+
 
 const schema = yup.object().shape({
   pushNotifications: yup.boolean(),
@@ -34,7 +37,7 @@ const AdditionalFeatures = () => {
   const [icon1, setIcon1] = useState("");
   const [icon2, setIcon2] = useState("");
   const [icon3, setIcon3] = useState("");
-
+console.log(IconPickerItem);
   const dispatch = useDispatch();
   const form_data = useSelector((state) => state.form);
 
@@ -58,7 +61,7 @@ const AdditionalFeatures = () => {
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
-      pushNotifications: form_data.pushNotication,
+      pushNotifications: form_data.pushNoti,
       bottomBar: form_data.bottomBar,
       page1: {
         url: "",
@@ -110,7 +113,7 @@ const AdditionalFeatures = () => {
             <label
               htmlFor="pushNotifications"
               className={` px-4 py-2  rounded-lg  cursor-pointer text-white mb-8 inline-flex  ${
-                form_data.pushNotication ? "bg-yellow-500 " : "bg-gray-900"
+                form_data.pushNoti ? "bg-yellow-500 " : "bg-gray-900"
               } `}
             >
               <input
@@ -219,6 +222,8 @@ const AdditionalFeatures = () => {
                 />
 
                 <IconPicker value={icon1} onChange={(e) => handelIconChange(e, setIcon1, 'page1.icon')}/>
+                {console.log(<IconPickerItem icon={icon1} size={24} color="#000"  />)}
+                
                  <input type="hidden"   {...register("page1.icon")}/>
               </span>
 
@@ -237,6 +242,7 @@ const AdditionalFeatures = () => {
                   {...register("page2.url")}
                 />
                 <IconPicker value={icon2} onChange={(e) => handelIconChange(e, setIcon2, 'page2.icon')}/>
+                {icon3}
               </span>
 
               <label

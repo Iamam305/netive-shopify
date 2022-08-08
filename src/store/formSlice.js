@@ -24,6 +24,7 @@ const initialState = {
 	keyAlias: "keyAlias",
 	keystorePassword2: "keystorepassword",
 	keyPassword: "keystorepassword",
+  iosToken:'',
 	admob: false,
 	pushNoti: false,
 	ios_certificate_password: "",
@@ -104,6 +105,9 @@ const formSlice = createSlice({
     SetIOS: (state, action) => {
       state.iosChoose = action.payload;
     },
+    SetIOStoken:(state, action) => {
+      state.iosToken = action.payload;
+    },
     SetFullName: (state, action) => {
       state.Name = action.payload;
     },
@@ -139,6 +143,7 @@ export const {
   SetSplashScreen,
   SetAndroidOs,
   SetIOS,
+  SetIOStoken,
   SetFullName,
   SetOrgnizationName,
   SetKeyAlias,

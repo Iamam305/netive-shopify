@@ -7,65 +7,64 @@ import {
 
   SetAndroidOs,
   SetIOS,
-  SetFullName,
-  SetOrgnizationName,
-  SetKeyAlias,
-  SetKeystorePass,
-  SetSigningCertificate,
-  SetProvisioningProfile,
-  SetIosPassword,
+  SetIOStoken,
+  // SetFullName,
+  // SetOrgnizationName,
+  // SetKeyAlias,
+  // SetKeystorePass,
+  // SetSigningCertificate,
+  // SetProvisioningProfile,
+  // SetIosPassword,
 } from "../../store/formSlice";
 import { incrementFormStep, decrementFormStep } from "../../store/formStepSlice";
+import { MdAddCircleOutline, MdCheck } from "react-icons/md";
 
 
 const schema = yup.object().shape({
   AndroidOs: yup.boolean(),
   IOS: yup.boolean(),
 
-  fullName: yup.string().when("AndroidOs", {
-    is: true,
-    then: yup.string().required("name is required"),
-  }),
-  organizationName: yup.string().when("AndroidOs", {
-    is: true,
-    then: yup.string().required("fill your orgnization name"),
-  }),
-  keyAlias: yup.string().when("AndroidOs", {
-    is: true,
-    then: yup.string().required("fill your key alias"),
-  }),
-  keystorePass: yup.string().when("AndroidOs", {
-    is: true,
-    then: yup.string().required("set your keystore paassword"),
-  }),
-  signingCertificate: yup.mixed().when("IOS", {
-    is: true,
-    then: yup
-      .mixed()
-      .required("please upload your signing certificate")
-      .test("type", "please upload valid certificate", function (value) {
-        return value && value[0] && value[0].type === "application/x-pkcs12";
-      }),
-  }),
+  // fullName: yup.string().when("AndroidOs", {
+  //   is: true,
+  //   then: yup.string().required("name is required"),
+  // }),
+  // organizationName: yup.string().when("AndroidOs", {
+  //   is: true,
+  //   then: yup.string().required("fill your orgnization name"),
+  // }),
+  // keyAlias: yup.string().when("AndroidOs", {
+  //   is: true,
+  //   then: yup.string().required("fill your key alias"),
+  // }),
+  // keystorePass: yup.string().when("AndroidOs", {
+  //   is: true,
+  //   then: yup.string().required("set your keystore paassword"),
+  // }),
+  // signingCertificate: yup.mixed().when("IOS", {
+  //   is: true,
+  //   then: yup
+  //     .mixed()
+  //     .required("please upload your signing certificate")
+  //     .test("type", "please upload valid certificate", function (value) {
+  //       return value && value[0] && value[0].type === "application/x-pkcs12";
+  //     }),
+  // }),
 
-  provisioningProfile: yup.mixed().when("IOS", {
-    is: true,
-    then: yup.mixed().required("upload your provisioning profile file"),
-  }),
+  // provisioningProfile: yup.mixed().when("IOS", {
+  //   is: true,
+  //   then: yup.mixed().required("upload your provisioning profile file"),
+  // }),
 
-  iosPassword: yup.string().when("IOS", {
+  iosToken: yup.string().when("IOS", {
     is: true,
-    then: yup.string().required("fill your password"),
+    then: yup.string().required("required"),
   }),
 });
 
 const OsForm = () => {
-  const [android, setAndroid] = useState(false);
-
-  const [ios, setIOS] = useState(false);
-
+  
   const dispatch = useDispatch();
-  const Formdata = useSelector((state) => state.form);
+  const Form_data = useSelector((state) => state.form);
 
   // console.log(android)
 
@@ -74,13 +73,15 @@ const OsForm = () => {
 
     dispatch(SetAndroidOs(data.AndroidOs));
     dispatch(SetIOS(data.IOS));
-    dispatch(SetFullName(data.fullName));
-    dispatch(SetOrgnizationName(data.organizationName));
-    dispatch(SetKeyAlias(data.SetKeyAlias));
-    dispatch(SetKeystorePass(data.keystorePass));
-    dispatch(SetSigningCertificate(data.signingCertificate));
-    dispatch(SetProvisioningProfile(data.provisioningProfile));
-    dispatch(SetIosPassword(data.iosPassword));
+    dispatch(SetIOStoken(data.iosToken));
+
+    // dispatch(SetFullName(data.fullName));
+    // dispatch(SetOrgnizationName(data.organizationName));
+    // dispatch(SetKeyAlias(data.SetKeyAlias));
+    // dispatch(SetKeystorePass(data.keystorePass));
+    // dispatch(SetSigningCertificate(data.signingCertificate));
+    // dispatch(SetProvisioningProfile(data.provisioningProfile));
+    // dispatch(SetIosPassword(data.iosPassword));
     dispatch(incrementFormStep());
   }
 
@@ -92,14 +93,18 @@ const OsForm = () => {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
-    defaultValues: {},
+    defaultValues: {
+      AndroidOs:Form_data.androidChoose,
+      IOS:Form_data.iosChoose,
+      iosToken:Form_data.iosToken
+    },
   });
 
-  const handleChange = (event, OsStateHook) => {
+  const handleChange = (event, OsStateReducer) => {
     if (event.target.checked) {
-      OsStateHook(true);
+      dispatch(OsStateReducer(true));
     } else {
-      OsStateHook(false);
+      dispatch(OsStateReducer(false));
     }
   };
   return (
@@ -123,11 +128,11 @@ const OsForm = () => {
             <h2 className="text-gray-800 mb-4 font-bold">
               Select Operating System
             </h2>
-            <div>
+            <div className="flex font-bold text-gray-800">
               <label
                 htmlFor="AndroidOs"
-                className={` py-2 p-6 rounded-lg text-white cursor-pointer ${
-                  android ? "bg-yellow-500 " : "bg-gray-800"
+                className={` py-2 px-8 rounded-3xl flex items-center  cursor-pointer border-2  ${
+                  Form_data.androidChoose ? "bg-yellow-500 text-white" : "bg-white shadow-md"
                 } `}
               >
                 <input
@@ -135,16 +140,19 @@ const OsForm = () => {
                   name="AndroidOs"
                   id="AndroidOs"
                   {...register("AndroidOs")}
-                  onChange={(e) => handleChange(e, setAndroid)}
-                  className="w-0 h-0 p-0 border-0 focus:outline-0 relative -z-20 m"
+                  onChange={(e) => handleChange(e, SetAndroidOs)}
+                  className="w-0 h-0 p-0 border-0 focus:outline-0 relative -z-20 m "
                 />
+                {Form_data.androidChoose?<MdCheck/>:<MdAddCircleOutline/>}
+                
+                {"\u00A0"}
                 Android
               </label>
               {"\u00A0"} {"\u00A0"}
               <label
                 htmlFor="IOS"
-                className={` py-2 px-6 rounded-lg cursor-pointer text-white ${
-                  ios ? "bg-yellow-500 " : "bg-gray-800 "
+                className={` py-2 px-8 rounded-3xl flex items-center cursor-pointer  border-2 ${
+                  Form_data.iosChoose ? "bg-yellow-500 text-white" : "bg-white shadow-md"
                 } `}
               >
                 <input
@@ -152,20 +160,22 @@ const OsForm = () => {
                   name="IOS"
                   id="IOS"
                   {...register("IOS")}
-                  onChange={(e) => handleChange(e, setIOS)}
-                  className="w-0 h-0 p-0 border-0 focus:outline-0 relative -z-20"
+                  onChange={(e) => handleChange(e, SetIOS)}
+                  className="w-0 h-0 p-0 border-0  focus:outline-0 relative -z-20"
                 />
+                 {Form_data.iosChoose?<MdCheck/>:<MdAddCircleOutline/>}
+                 {"\u00A0"}
                 IOS
               </label>
             </div>
             <p className="text-xs text-red-600 mt-4">
-              {android === false && ios === false
+              {Form_data.androidChoose === false && Form_data.iosChoose === false
                 ? "please select atleast one platform"
                 : ""}
             </p>
           </span>
 
-          {android ? (
+          {/* {android ? (
             <>
               <h2 className="text-gray-800 mb-4 font-bold text-lg">ANDROID </h2>
 
@@ -251,80 +261,84 @@ const OsForm = () => {
             </>
           ) : (
             ""
-          )}
+          )} */}
 
-          {ios ? (
+          {Form_data.iosChoose ? (
+            // <>
+            //   <h2 className="text-gray-800 mb-4 font-bold text-lg">IOS </h2>
+
+            //   <span className="flex flex-col my-4">
+            //     <label
+            //       htmlFor="signingCertificate"
+            //       className="text-gray-800 mb-2 font-bold"
+            //     >
+            //       {" "}
+            //       Select Signing Certificate
+            //     </label>
+
+            //     <input
+            //       type={"file"}
+            //       accept=".p12"
+            //       id="signingCertificate"
+            //       name="signingCertificate"
+            //       {...register("signingCertificate")}
+            //       className="file:bg-yellow-500 file:border-0 file:mr-2 file:rounded-md file:py-2 file:px-4 file:font-bold file:text-white text-white  p-1 rounded-md border"
+            //     />
+            //     <p className="text-xs text-red-600">
+            //       {errors.signingCertificate?.message}
+            //     </p>
+            //   </span>
+            //   <span className="flex flex-col my-4">
+            //     <label
+            //       htmlFor="provisioningProfile"
+            //       className="text-gray-800 mb-2 font-bold"
+            //     >
+            //       {" "}
+            //       Select Provisioning Profile
+            //     </label>
+
+            //     <input
+            //       type={"file"}
+            //       accept=".mobileprovision"
+            //       id="provisioningProfile"
+            //       name="provisioningProfile"
+            //       {...register("provisioningProfile")}
+            //       className="file:bg-yellow-500 file:border-0 file:mr-2 file:rounded-md file:py-2 file:px-4 file:font-bold file:text-white text-white  p-1 rounded-md border"
+            //     />
+            //     <p className="text-xs text-red-600">
+            //       {errors.provisioningProfile?.message}
+            //     </p>
+            //   </span>
+
+            //   <span className="flex flex-col my-4">
+            //     <label
+            //       htmlFor="iosPassword"
+            //       className="text-gray-800 mb-2 font-bold"
+            //     >
+            //       Password
+            //     </label>
+
+            //     <input
+            //       id="iosPassword"
+            //       name="iosPassword"
+            //       placeholder="password"
+            //       {...register("iosPassword")}
+            //       className="p-3 border-2 rounded-lg"
+            //     />
+            //     <p className="text-xs text-red-600">
+            //       {errors.iosPassword?.message}
+            //     </p>
+            //   </span>
+            // </>
             <>
-              <h2 className="text-gray-800 mb-4 font-bold text-lg">IOS </h2>
-
-              <span className="flex flex-col my-4">
-                <label
-                  htmlFor="signingCertificate"
-                  className="text-gray-800 mb-2 font-bold"
-                >
-                  {" "}
-                  Select Signing Certificate
-                </label>
-
-                <input
-                  type={"file"}
-                  accept=".p12"
-                  id="signingCertificate"
-                  name="signingCertificate"
-                  {...register("signingCertificate")}
-                  className="file:bg-yellow-500 file:border-0 file:mr-2 file:rounded-md file:py-2 file:px-4 file:font-bold file:text-white text-white  p-1 rounded-md border"
-                />
-                <p className="text-xs text-red-600">
-                  {errors.signingCertificate?.message}
-                </p>
-              </span>
-              <span className="flex flex-col my-4">
-                <label
-                  htmlFor="provisioningProfile"
-                  className="text-gray-800 mb-2 font-bold"
-                >
-                  {" "}
-                  Select Provisioning Profile
-                </label>
-
-                <input
-                  type={"file"}
-                  accept=".mobileprovision"
-                  id="provisioningProfile"
-                  name="provisioningProfile"
-                  {...register("provisioningProfile")}
-                  className="file:bg-yellow-500 file:border-0 file:mr-2 file:rounded-md file:py-2 file:px-4 file:font-bold file:text-white text-white  p-1 rounded-md border"
-                />
-                <p className="text-xs text-red-600">
-                  {errors.provisioningProfile?.message}
-                </p>
-              </span>
-
-              <span className="flex flex-col my-4">
-                <label
-                  htmlFor="iosPassword"
-                  className="text-gray-800 mb-2 font-bold"
-                >
-                  Password
-                </label>
-
-                <input
-                  id="iosPassword"
-                  name="iosPassword"
-                  placeholder="password"
-                  {...register("iosPassword")}
-                  className="p-3 border-2 rounded-lg"
-                />
-                <p className="text-xs text-red-600">
-                  {errors.iosPassword?.message}
-                </p>
-              </span>
+            <label htmlFor="iosToken" className="text-gray-800 mb-2 font-bold flex">IOS TOKEN</label>
+            <textarea required name="iosToken" id="iosToken" className="w-full h-36 rounded-md resize-none" {...register("iosToken")}></textarea>
             </>
           ) : (
             ""
           )}
 
-          <span className="flex justify-evenly">
+          <span className="flex justify-evenly mt-4">
             <button
               className="px-12 py-3 bg-black text-white rounded-md"
               onClick={() => dispatch(decrementFormStep())}

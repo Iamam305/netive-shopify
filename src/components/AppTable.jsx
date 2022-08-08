@@ -3,6 +3,7 @@ import userService from "../service/user-service";
 import { FaDownload } from "react-icons/fa";
 import { DiApple, DiAndroid } from "react-icons/di";
 const AppTable = () => {
+  
   const [apps, setApps] = useState([]);
   useEffect(() => {
     fetchApps();
@@ -141,9 +142,9 @@ const AppTable = () => {
               <tr key={app.created}>
                 <td  className="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
                   <div  className="flex items-center justify-center">
-                    <div  className="flex-shrink-0 w-10 h-10">
+                    <div  className="flex items-center justify-center w-16 h-16">
                       <img
-                         className="w-10 h-10 rounded-full"
+                         className="max-w-full max-h-full rounded-full"
                         src={app.icon}
                         alt=""
                       />

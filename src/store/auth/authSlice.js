@@ -3,6 +3,7 @@ import {setMessage} from './messageSlice'
 import AuthService from '../../service/authService'
 
 
+
 const user = JSON.parse(localStorage.getItem("user"));
 
 export const registerUser = createAsyncThunk(
@@ -30,6 +31,7 @@ export const login = createAsyncThunk(
   async ({ username, password }, thunkAPI) => {
     try {
       const data = await AuthService.login(username, password);
+
       return { user: data };
     } catch (error) {
       const message =

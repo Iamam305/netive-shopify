@@ -31,3 +31,6 @@ code {
 .formOverview form{
   width: 100% !important;
 }
+.formOverview .appIcon img{
+display:block !important;
+}

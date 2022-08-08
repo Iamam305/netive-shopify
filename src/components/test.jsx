@@ -3,46 +3,36 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import userService from '../service/user-service';
-const Appdata = {
-
-  platform: ['android'],
-  appName: 'String',
-  url: 'String',
-  appIcon: "",
-  package_name: 'com.app.name',
-  primaryColor: '#fff',
-  primaryColorDark: "#ff2",
-  colorAccent: '#ff3',
-  splashScreenType: 1,
-  keystoreSetting: 'new',
-  keystoreName: 'String',
-  Name: 'String',
-  OrganizationUnit: 'String',
-  Organization: 'String',
-  City: 'String',
-  State: 'String',
-  CountryCode: 'IN',
-  keystorePassword: "String",
-  keyAlias: 'String',
-  keyPassword: 'String',
-  admobEnable: false,
-  pushNotifications: false,
-
-}
-
-
+// import FontIconPicker from '@fonticonpicker/react-fonticonpicker';
+// import * as icons from 'react-icons/all'
+import * as icons from "react-icons/fa";
+import { IconPickerItem, IconPicker  } from 'react-fa-icon-picker'
+// });
 const Test = () => {
-  const [data, setData] = useState(Appdata)
-  const createApp = ()=>{
-    userService.createApp(data)
+  // const lol = icons.FaAccusoft.toString()
+  const lol = icons.FaAccusoft().props.children[0].props.d
 
-}
+  // lol = lol.substring()
+//  console.log(lol);
+  const [value, setValue] = useState("")
+  
   
 
   return (
     <div>
+   <p className='icon-selected-text'></p>
+   <IconPicker value={value} onChange={(v) => setValue(v)} />
+   <icons.FaAccessibleIcon/>
+   <icons.FaAccusoft/>
+  {
+    console.log(`
+    <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d={"${lol}"}></path></svg>
+    `)
+  }
    
-      <button onClick={() =>createApp()}> click me</button>
+   
+   {}
+      
 
     </div>
   )

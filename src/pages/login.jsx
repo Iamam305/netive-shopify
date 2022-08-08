@@ -6,6 +6,10 @@ import { login } from '../store/auth/authSlice';
 import { clearMessage } from '../store/auth/messageSlice';
 import logo from '../logo.png'
 import { FcGoogle } from "react-icons/fc";
+import {  toast } from 'react-toastify';
+import { AiOutlineLoading } from "react-icons/ai";
+import authService from "../service/authService";
+
 
 const Login = () => {
 
@@ -13,19 +17,16 @@ const Login = () => {
     const [loading, setLoading] = useState(false);
     const  isLoggedIn  = useSelector((state) => state.auth);
     console.log(isLoggedIn);
-    const { message } = useSelector((state) => state.message );
+    // const { message } = useSelector((state) => state.message );
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
 
     useEffect(() => {
         dispatch(clearMessage());
-    //    if (isLoggedIn) {
-    //     navigate("/")
-    //     console.log(isLoggedIn)
-    //    }
+      
      
-    }, [dispatch]);
+    }, []);
 
     
    
@@ -34,16 +35,16 @@ const Login = () => {
         const { username, password } = data;
         setLoading(true);
         dispatch(login({ username, password }))
-          .unwrap() 
-          .then(() => {
-            if(isLoggedIn){
-
-                navigate("/")
-            }
+        .unwrap()
+        .then(() => {
+            navigate("/"); 
+            toast.success("Login Successful")  
           })
-          .catch(() => {
+          .catch((error) => {
             setLoading(false);
+            toast.error("Wrong username or password")
           })
+
     
       };
      
@@ -83,7 +84,7 @@ const Login = () => {
                     <div className="flex items-center justify-between mt-4">
                        
 
-                        <button className="px-4 py-3 w-full leading-5  transition-colors duration-200 transform bg-yellow-500 rounded hover:bg-yellow-600 focus:outline-none" type="submit">Sign in</button>
+                        <button className="px-4 py-3 w-full leading-5  transition-colors duration-200 transform bg-yellow-500 rounded hover:bg-yellow-600 focus:outline-none flex justify-center items-center" type="submit">Sign in {loading? <AiOutlineLoading className ="animate-spin ml-2"/> :''} </button>
                     </div>
                 </form>
             </div>

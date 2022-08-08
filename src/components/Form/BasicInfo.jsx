@@ -67,7 +67,7 @@ const BasicInfo = () => {
       appName: form_data.appName,
       websiteLink: form_data.url,
       packageName: form_data.package_name,
-      appIcon: form_data.appIcon,
+      appIcon: form_data.image,
     },
   });
 
@@ -77,7 +77,6 @@ const BasicInfo = () => {
     dispatch(SetBundelId(data.packageName));
     dispatch(SetAppIcon(data.appIcon[0]));
     dispatch(incrementFormStep());
-
     setValue("appName", form_data.appName);
 
     console.log(data);
@@ -88,7 +87,7 @@ const BasicInfo = () => {
         <img
           src={"https://i.ibb.co/hL8zGgQ/Building-Product.png"}
           alt=""
-          className="absolute md:static md:z-0 -z-30 md:w-3/5"
+          className="absolute md:static md:z-0 -z-30 md:w-3/5 "
         />
 
         <form
@@ -154,10 +153,10 @@ const BasicInfo = () => {
           <span className="flex flex-col my-3">
             <label htmlFor="appIcon" className="text-gray-800 mb-2 font-bold">
               App Icon
-              {(form_data.appIcon && (
-                <div className="w-36 border-2 rounded-lg p-2 mt-4">
+              {(form_data.image && (
+                <div className="w-36 border-2 rounded-lg p-2 mt-4 appIcon">
                   <img
-                    src={URL.createObjectURL(form_data.appIcon)}
+                    src={URL.createObjectURL(form_data.image)}
                     alt="Thumb"
                   />
                 </div>

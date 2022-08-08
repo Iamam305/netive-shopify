@@ -10,20 +10,20 @@ import {
   MdAccountCircle,
   MdCreditCard,
   MdLibraryBooks,
+  MdClose,
 } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import logo from "../logo.png";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { logout } from "../store/auth/authSlice";
 import { MdLogout } from "react-icons/md";
 
-const Sidebar = ({ userInfo }) => {
+const Sidebar = ({ userInfo, hamburger, setHamburger}) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const Logout = () => {
-    dispatch(logout());
+    dispatch(Logout());
     navigate("/signin");
   };
 
@@ -120,7 +120,11 @@ const Sidebar = ({ userInfo }) => {
           </button>
         </div>
       </div> */}
-      <div className="ease-in fixed inset-y-0 left-0 z-30 w-64 overflow-y-auto transition duration-300 transform bg-gray-900 ">
+      <div className={`${hamburger?"block":'hidden'} md:block ease-in fixed inset-y-0 left-0 z-50 w-full md:w-64 overflow-y-auto transition duration-300 transform bg-gray-900 `}>
+        <span className="text-white md:hidden flex justify-end text-3xl fixed w-full px-4 top-1" onClick={() =>setHamburger(false)}>
+
+        <MdClose />
+        </span>
         <div className="flex items-center justify-start mx-7 mt-8">
           <div className="flex items-center justify-end w-16">
             <img src={logo} alt="" className=""/>
@@ -131,7 +135,7 @@ const Sidebar = ({ userInfo }) => {
         <nav className="mt-10">
           <NavLink to="/"
             
-            className=" flex items-center px-6 py-2 mt-4 duration-200 border-l-4 bg-gray-900 text-gray-500 hover:bg-gray-600 hover:bg-opacity-25 hover:text-gray-100 "
+            className=" flex items-center px-6 py-2 mt-4 duration-200 border-l-4 border-gray-900 bg-gray-900 text-gray-500 hover:bg-gray-600 hover:bg-opacity-25 hover:text-gray-100 "
             aria-current="page"
           >
            <MdDashboard/>

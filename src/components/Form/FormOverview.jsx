@@ -7,15 +7,27 @@ import BasicInfo from "./BasicInfo";
 import FormStyle from "./FormStyle";
 import OsForm from "./OsForm";
 import AdditionalFeatures from "./AdditionalFeatures";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+
 
 
 
 const FormOverview = () => {
   const Form_Data = useSelector((state) => state.form);
   const dispatch = useDispatch();
+  const Navigate = useNavigate()
 
   const createApp = () => {
-    userService.createApp(Form_Data);
+    userService.createApp(Form_Data)
+    .then(() =>{
+      toast.success("App Created Successfully")
+      Navigate('/')
+    }).catch(() =>{
+      toast.error("Something went wrong try again")
+
+    })
+    ;
   };
 
   console.log(Form_Data);

@@ -19,6 +19,7 @@ import AdditionalFeatures from './components/Form/AdditionalFeatures'
 
 
 
+
 function App() {
 
   const navigate = useNavigate();
@@ -34,18 +35,25 @@ function App() {
       navigate('/signin')
     }
 
+   
+
 
   }, [])
+
 
 
     return (
       <>
            
-            <AppTable/>
+            {/* <AppTable/> */}
             {/* <AdditionalFeatures/> */}
             {/* <FormOverview/> */}
+            {/* <OsForm/> */}
+            <Test/>
       </>
     )
-}
+  }
+
+
 
 export default App
