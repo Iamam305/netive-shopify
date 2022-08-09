@@ -17,7 +17,10 @@ import AppTable from "./components/AppTable";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-   <App/>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+
     <ToastContainer />
   </Provider>
 );
