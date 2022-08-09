@@ -39,11 +39,10 @@ function App() {
         <Route path="/signin" element={<Login />} />
         <Route path="auth/token/:id" element={<Dynamic />} />
         <Route path="*" element={<NotFound />} />
-        <Route element={<Layout />}>
-          <Route path="/" element={<AppTable/>} />
-          <Route path="create-app" element={<Form />} />
-          
-        </Route>
+         {/* <Route element={<Layout />}> */}
+            <Route path="/" element={<AppTable />} />
+            <Route path="create-app" element={<Form />} />
+          {/* </Route> */}
       </Routes>
     </BrowserRouter>
       </>
