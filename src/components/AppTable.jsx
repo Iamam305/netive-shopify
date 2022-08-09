@@ -2,11 +2,22 @@ import React, { useEffect, useState } from "react";
 import userService from "../service/user-service";
 import { FaDownload } from "react-icons/fa";
 import { DiApple, DiAndroid } from "react-icons/di";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
 const AppTable = () => {
   
   const [apps, setApps] = useState([]);
+  const { isLoggedIn, user } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
+
   useEffect(() => {
     fetchApps();
+    
+    if (!isLoggedIn) {
+      navigate('/signin')
+    }
+  
   }, []);
 
   const fetchApps = () => {

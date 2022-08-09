@@ -61,7 +61,7 @@ const Login = () => {
             Login or create account
           </p>
 
-          <span className="flex w-full mt-2">
+          {/* <span className="flex w-full mt-2">
             <button
               className="h-11 pr-4 rounded w-full flex text-center items-center font-bold text-white"
               style={{ background: "#4285f4" }}
@@ -72,7 +72,7 @@ const Login = () => {
               </span>
               Sign in with Google
             </button>
-          </span>
+          </span> */}
           <hr className="my-3" />
 
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -98,7 +98,7 @@ const Login = () => {
 
             <div className="flex items-center justify-between mt-4">
               <button
-                className="px-4 py-3 w-full leading-5  transition-colors duration-200 transform bg-Indigo-500 rounded hover:bg-Indigo-600 focus:outline-none flex justify-center items-center"
+                className="px-4 py-3 w-full leading-5  transition-colors duration-200 transform bg-indigo-500 rounded hover:bg-Indigo-600 focus:outline-none flex justify-center items-center"
                 type="submit"
               >
                 Sign in{" "}
