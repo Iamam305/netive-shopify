@@ -113,16 +113,17 @@ const OsForm = () => {
   };
   return (
     <>
-      <div className="flex flex-col w-full my-4 md:flex-row-reverse  items-center justify-center mx-auto md:p-12 ">
+      <div className="flex flex-col w-full my-4 md:flex-row-reverse  items-center justify-center mx-auto  p-6">
         <img
-          src={"https://i.ibb.co/2WX6F4z/Creating-Mobile-App.png"}
+          src={"https://i.ibb.co/BgRBzM4/Development.png"}
+  
           alt=""
           className="absolute md:static md:z-0 -z-30 md:w-3/5"
         />
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="w-full md:w-2/5 backdrop-blur-sm  p-6 md:p-1"
+          className="w-full md:w-2/5 backdrop-blur-sm  mr-6 "
         >
           <h2 className="text-yellow-400 text-3xl font-bold mb-8">
             OS and Certificate
@@ -336,7 +337,22 @@ const OsForm = () => {
             // </>
             <>
             <label htmlFor="iosToken" className="text-gray-800 mb-2 font-bold flex">IOS TOKEN</label>
-            <textarea required name="iosToken" id="iosToken" className="w-full h-36 rounded-md resize-none" {...register("iosToken")}></textarea>
+            {/* <textarea required name="iosToken" id="iosToken" className="w-full h-36 rounded-md resize-none" {...register("iosToken")}></textarea> */}
+           
+
+                  <input
+                    type="file"
+                    accept=".p2"
+                    required
+                    id="iosToken"
+                    className="file:bg-white file:mr-2 file:rounded-3xl file:border file:border-gray-200 file:shadow-xl file:py-2 file:px-4 file:font-bold  p-1 rounded-md border-2"
+                    name="GoogleService.Plist text-gray-800"
+                    {...register("iosToken", { required: true })}
+                  />
+                  <p className="text-xs text-red-600">
+                    {errors.iosToken?.message &&
+                      `please upload your ios token file`}
+                  </p>
             </>
           ) : (
             ""

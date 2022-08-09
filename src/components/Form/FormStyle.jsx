@@ -90,7 +90,7 @@ const FormStyle = () => {
 
   return (
     <>
-      <div className="flex flex-col w-full my-4 md:flex-row-reverse  items-center justify-center mx-auto   md:p-12 ">
+      <div className="flex flex-col w-full my-4 md:flex-row-reverse  items-center justify-center mx-auto  p-6">
         <img
           src={"https://i.ibb.co/2WX6F4z/Creating-Mobile-App.png"}
           alt=""
@@ -99,7 +99,7 @@ const FormStyle = () => {
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="w-full md:w-2/5 backdrop-blur-sm  p-6 md:p-1"
+          className="w-full md:w-2/5 backdrop-blur-sm  mr-6 "
         >
           <h2 className="text-yellow-400 text-3xl font-bold mb-8">STYLING</h2>
 

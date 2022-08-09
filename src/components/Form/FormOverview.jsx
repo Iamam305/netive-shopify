@@ -39,6 +39,7 @@ import {
 import { SetFormStep } from "../../store/formStepSlice";
 
 const FormOverview = () => {
+  const [loading, setLoading] = useState(false)
   const Form_Data = useSelector((state) => state.form);
   const dispatch = useDispatch();
   const Navigate = useNavigate();
@@ -60,12 +61,15 @@ const FormOverview = () => {
 
   }
   const createApp = () => {
+    if(!loading){
+
+    setLoading(true)
     userService
       .createApp(Form_Data)
       .then(() => {
         toast.success("App Created Successfully");
-  console.log(Form_Data);
-
+        setLoading(false)
+        console.log(Form_Data);
         Navigate("/");
       })
       .then(() =>{
@@ -73,14 +77,18 @@ const FormOverview = () => {
       })
       .catch(() => {
         toast.error("Something went wrong try again");
+        setLoading(false)
+
       });
+    }
+
   };
 
   console.log(Form_Data);
 
   return (
-    <div className=" w-full    mx-auto my-auto    md:p-12  ">
-      <h2 className="text-3xl font-bold text-yellow-500 drop-shadow-lg  py-4 ">
+    <div className=" w-full    mx-auto my-auto  p-6   ">
+      <h2 className="text-3xl font-bold text-yellow-500 drop-shadow-lg  p-4 ">
         REVIEW YOUR INFORMATION BEFORE SUBMITTING
       </h2>
       <div className="formOverview">
@@ -98,9 +106,10 @@ const FormOverview = () => {
           BACK
         </button>
         <button
-          className="px-12 py-3 bg-black text-white rounded-md mx-2"
+          className={`px-12 py-3  text-white rounded-md mx-2 ${loading?'cursor-not-allowed bg-gray-900':'bg-black'}`}
           type="submit"
           onClick={() => createApp()}
+         
         >
           SUBMIT
         </button>

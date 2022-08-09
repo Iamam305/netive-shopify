@@ -21,13 +21,7 @@ const createApp = async (form_data) => {
       console.log(res);
 
     })
-    .catch((err) => {
-      console.log("Error! Creating App!");
-
-      console.log(err);
-
-
-    });
+    ;
 };
 
 const getApp = async () => {

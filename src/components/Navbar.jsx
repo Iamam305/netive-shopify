@@ -18,7 +18,7 @@ const Navbar = ({ userInfo, hamburger, setHamburger }) => {
 
   return (
     <>
-      <header className="flex flex-row-reverse md:flex-row items-center w-full md:w-[calc(100%_-_16rem)] fixed z-40 justify-between px-6 py-2 bg-white border-b-4 border-yellow-500">
+      <header className="flex flex-row-reverse md:flex-row items-center w-full md:w-[calc(100%_-_16rem)] fixed z-40 justify-between h-16 px-6 py-2 bg-white border-b-4 border-yellow-500">
         <div className="flex items-center">
           <img src={userInfo.avatar} alt="" className="w-12 rounded-full" />
           <p className="text-gray-800 text-xl font-semibold ml-2"> {userInfo.username}</p>

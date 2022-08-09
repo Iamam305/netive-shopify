@@ -14,6 +14,7 @@ import OsForm from './components/Form/OsForm'
 import FormOverview from './components/Form/FormOverview'
 import FormStyle from './components/Form/FormStyle'
 import AdditionalFeatures from './components/Form/AdditionalFeatures'
+import IconPicker from './components/IconPicker'
 
 
 
@@ -45,9 +46,10 @@ function App() {
     return (
       <>
            
-            <AppTable/>
+            {/* <AppTable/> */}
+            {/* <IconPicker/> */}
             {/* <AdditionalFeatures/> */}
-            {/* <FormOverview/> */}
+            <FormOverview/>
             {/* <OsForm/> */}
             {/* <Test/> */}
       </>

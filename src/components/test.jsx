@@ -10,11 +10,22 @@ import { IconPickerItem, IconPicker  } from 'react-fa-icon-picker'
 // });
 const Test = () => {
   // const lol = icons.FaAccusoft.toString()
-  const lol = icons.FaAccusoft().props.children[0].props.d
+
 
   // lol = lol.substring()
 //  console.log(lol);
   const [value, setValue] = useState("")
+
+    const lol = `icons.${value}().props.children[0].props.d`
+if (value !== "") {
+  console.log()
+  
+}
+  
+
+
+  
+  
   
   
 
@@ -22,14 +33,16 @@ const Test = () => {
     <div>
    <p className='icon-selected-text'></p>
    <IconPicker value={value} onChange={(v) => setValue(v)} />
+ 
    <icons.FaAccessibleIcon/>
    <icons.FaAccusoft/>
   {
     console.log(`
-    <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d={"${lol}"}></path></svg>
+    <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="${value !== ''? eval(lol):''}"></path></svg>
     `)
+    
   }
-   
+    <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d={`${value !== ''? eval(lol):''}`}></path></svg>
    
    {}
       
