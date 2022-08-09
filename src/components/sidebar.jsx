@@ -40,7 +40,7 @@ const Sidebar = ({ userInfo, hamburger, setHamburger }) => {
           <h4 className="mx-2 mt-2 font-medium   text-gray-800 hover:underline">
             {userInfo.username}
           </h4>
-          <p className="mx-2 mt-1 text-sm font-medium  text-yellow-400 hover:underline">
+          <p className="mx-2 mt-1 text-sm font-medium  text-Indigo-400 hover:underline">
             {userInfo.email}
           </p>
         </div>

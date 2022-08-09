@@ -88,7 +88,7 @@ const FormOverview = () => {
 
   return (
     <div className=" w-full    mx-auto my-auto  p-6   ">
-      <h2 className="text-3xl font-bold text-yellow-500 drop-shadow-lg  p-4 ">
+      <h2 className="text-3xl font-bold text-indigo-500 drop-shadow-lg  p-4 ">
         REVIEW YOUR INFORMATION BEFORE SUBMITTING
       </h2>
       <div className="formOverview">

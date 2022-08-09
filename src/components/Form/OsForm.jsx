@@ -125,7 +125,7 @@ const OsForm = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="w-full md:w-2/5 backdrop-blur-sm  mr-6 "
         >
-          <h2 className="text-yellow-400 text-3xl font-bold mb-8">
+          <h2 className="text-indigo-500 text-3xl font-bold mb-8">
             OS and Certificate
           </h2>
 
@@ -137,7 +137,7 @@ const OsForm = () => {
               <label
                 htmlFor="AndroidOs"
                 className={` py-2 px-8 rounded-3xl flex items-center  cursor-pointer border-2  ${
-                  Form_data.androidChoose ? "bg-yellow-500 text-white" : "bg-white shadow-md"
+                  Form_data.androidChoose ? "bg-indigo-500 text-white" : "bg-white shadow-md"
                 } `}
               >
                 <input
@@ -157,7 +157,7 @@ const OsForm = () => {
               <label
                 htmlFor="IOS"
                 className={` py-2 px-8 rounded-3xl flex items-center cursor-pointer  border-2 ${
-                  Form_data.iosChoose ? "bg-yellow-500 text-white" : "bg-white shadow-md"
+                  Form_data.iosChoose ? "bg-indigo-500 text-white" : "bg-white shadow-md"
                 } `}
               >
                 <input
@@ -287,7 +287,7 @@ const OsForm = () => {
             //       id="signingCertificate"
             //       name="signingCertificate"
             //       {...register("signingCertificate")}
-            //       className="file:bg-yellow-500 file:border-0 file:mr-2 file:rounded-md file:py-2 file:px-4 file:font-bold file:text-white text-white  p-1 rounded-md border"
+            //       className="file:bg-Indigo-500 file:border-0 file:mr-2 file:rounded-md file:py-2 file:px-4 file:font-bold file:text-white text-white  p-1 rounded-md border"
             //     />
             //     <p className="text-xs text-red-600">
             //       {errors.signingCertificate?.message}
@@ -308,7 +308,7 @@ const OsForm = () => {
             //       id="provisioningProfile"
             //       name="provisioningProfile"
             //       {...register("provisioningProfile")}
-            //       className="file:bg-yellow-500 file:border-0 file:mr-2 file:rounded-md file:py-2 file:px-4 file:font-bold file:text-white text-white  p-1 rounded-md border"
+            //       className="file:bg-Indigo-500 file:border-0 file:mr-2 file:rounded-md file:py-2 file:px-4 file:font-bold file:text-white text-white  p-1 rounded-md border"
             //     />
             //     <p className="text-xs text-red-600">
             //       {errors.provisioningProfile?.message}

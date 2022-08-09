@@ -94,7 +94,7 @@ const Register = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="w-full mt-4">
                 <input
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-md dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300"
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-md dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-Indigo-400 dark:focus:border-Indigo-300 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-Indigo-300"
                   type="text"
                   placeholder="User Name"
                   aria-label="username"
@@ -103,7 +103,7 @@ const Register = () => {
               </div>
               <div className="w-full mt-4">
                 <input
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-md dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300"
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-md dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-Indigo-400 dark:focus:border-Indigo-300 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-Indigo-300"
                   type="email"
                   placeholder="Email"
                   aria-label="Email Address"
@@ -113,7 +113,7 @@ const Register = () => {
 
               <div className="w-full mt-4">
                 <input
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-md dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300"
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-md dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-Indigo-400 dark:focus:border-Indigo-300 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-Indigo-300"
                   type="password"
                   placeholder="Password"
                   aria-label="Password"
@@ -122,7 +122,7 @@ const Register = () => {
               </div>
               <div className="w-full mt-4">
                 <input
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-md dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300"
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-md dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-Indigo-400 dark:focus:border-Indigo-300 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-Indigo-300"
                   type="password"
                   placeholder="Confirm Password"
                   aria-label="Password"
@@ -132,7 +132,7 @@ const Register = () => {
 
               <div className="flex items-center justify-between mt-4">
                 <button
-                  className="px-4 py-3 w-full leading-5  transition-colors duration-200 transform bg-yellow-500 rounded hover:bg-yellow-600 focus:outline-none"
+                  className="px-4 py-3 w-full leading-5  transition-colors duration-200 transform bg-indigo-500 rounded hover:bg-indigo-600 focus:outline-none"
                   type="submit"
                 >
                   Register
@@ -148,7 +148,7 @@ const Register = () => {
 
             <Link
               to={"/signin"}
-              className="mx-2 text-sm font-bold text-yellow-500 dark:text-yello-400 hover:underline"
+              className="mx-2 text-sm font-bold text-indigo-500 dark:text-indigo-400 hover:underline"
             >
               Login
             </Link>

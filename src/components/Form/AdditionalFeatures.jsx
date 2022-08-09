@@ -114,7 +114,7 @@ const AdditionalFeatures = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="w-full md:w-2/5 backdrop-blur-sm   mr-6"
         >
-          <h2 className="text-yellow-500 text-3xl font-bold mb-8">
+          <h2 className="text-indigo-500 text-3xl font-bold mb-8">
             Additional Feature
           </h2>
 
@@ -123,7 +123,7 @@ const AdditionalFeatures = () => {
               htmlFor="pushNotifications"
               className={`py-2 px-8 rounded-3xl flex items-center  cursor-pointer border-2 mb-2 ${
                 form_data.pushNoti
-                  ? "bg-yellow-500 text-white "
+                  ? "bg-indigo-500 text-white "
                   : "bg-white shadow-md"
               } `}
             >
@@ -141,7 +141,7 @@ const AdditionalFeatures = () => {
             {/* <label
               htmlFor="bottomBar"
               className={`py-2 px-8 rounded-3xl flex items-center  cursor-pointer border-2 mb-2 ${
-                form_data.bottomBar ? "bg-yellow-500 text-white " : "bg-white shadow-md"
+                form_data.bottomBar ? "bg-Indigo-500 text-white " : "bg-white shadow-md"
               } `}
             >
               <input
@@ -228,7 +228,7 @@ const AdditionalFeatures = () => {
 
           {/* {form_data.bottomBar ? (
             <div className="mb-8">
-              <h2 className="text-yellow-500 block mb-4 font-bold text-xl">
+              <h2 className="text-Indigo-500 block mb-4 font-bold text-xl">
                 Bottom Navigation-
               </h2>
 

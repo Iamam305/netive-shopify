@@ -105,7 +105,7 @@ const BasicInfo = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="w-full md:w-2/5 backdrop-blur-sm  mr-6 "
         >
-          <h2 className="text-yellow-400 text-3xl font-bold mb-8">
+          <h2 className="text-indigo-500 text-3xl font-bold mb-8">
             BASIC INFORMATION
           </h2>
 

@@ -101,7 +101,7 @@ const FormStyle = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="w-full md:w-2/5 backdrop-blur-sm  mr-6 "
         >
-          <h2 className="text-yellow-400 text-3xl font-bold mb-8">STYLING</h2>
+          <h2 className="text-indigo-500 text-3xl font-bold mb-8">STYLING</h2>
 
           <span className="flex flex-col my-3">
             <label
@@ -238,7 +238,7 @@ const FormStyle = () => {
                   name="splashScreen"
                   value="still"
                   id="still"
-                  className="checked:bg-yello-500 text-yellow-500  
+                  className="checked:bg-yello-500 text-indigo-500  
                                      checked:bg-[url(none)] p-2 mx-2"
                 />
                 NO ANIMATION SPLASH SCREEN
@@ -256,7 +256,7 @@ const FormStyle = () => {
                   name="splashScreen"
                   value="fade"
                   id="fade"
-                  className="checked:bg-yello-500 text-yellow-500
+                  className="checked:bg-yello-500 text-indigo-500
                                      checked:bg-[url(none)] p-2 mx-2"
                 />
                 SIMPLE FADE IN / OUT SPLASH
@@ -273,7 +273,7 @@ const FormStyle = () => {
                   name="splashScreen"
                   value="zoom"
                   id="zoom"
-                  className="checked:bg-yello-500 text-yellow-500 
+                  className="checked:bg-yello-500 text-indigo-500 
                                      checked:bg-[url(none)] p-2 mx-2"
                 />
                 ZOOM IN TRANSITION
